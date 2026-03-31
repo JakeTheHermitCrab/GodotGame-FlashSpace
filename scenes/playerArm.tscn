@@ -3,16 +3,16 @@
 [ext_resource type="Script" uid="uid://bp0q2pshvn8br" path="res://MainArm.gd" id="1_lj8jo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2brh"]
-size = Vector2(23, 9)
+size = Vector2(42, 9)
 
 [node name="playerArm" type="CharacterBody2D" unique_id=105793147]
 collision_layer = 2
 script = ExtResource("1_lj8jo")
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=798075398]
-polygon = PackedVector2Array(-5, -5, 18, -5, 18, 4, -5, 4)
+polygon = PackedVector2Array(-5, -5, 37, -5, 37, 4, -5, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1554841532]
 light_mask = 4
-position = Vector2(6.5, -0.5)
+position = Vector2(16, -0.5)
 shape = SubResource("RectangleShape2D_g2brh")
