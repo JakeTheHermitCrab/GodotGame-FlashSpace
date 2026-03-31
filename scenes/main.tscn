@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://r85ns0x48o3j"]
+
+[ext_resource type="PackedScene" uid="uid://vuyd4iy5enf8" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://bwn71a3u6m4d" path="res://scenes/playerArm.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://cbokvjx62lqru" path="res://scenes/flash_light.tscn" id="3_sugp2"]
+
+[node name="main" type="Node" unique_id=941396977]
+
+[node name="player" parent="." unique_id=555492990 instance=ExtResource("1_o5qli")]
+position = Vector2(539, 339)
+
+[node name="CharacterBody2D" parent="player" unique_id=105793147 instance=ExtResource("2_0wfyh")]
+position = Vector2(14, -9)
+
+[node name="flashLight" parent="player/CharacterBody2D" unique_id=1752664906 instance=ExtResource("3_sugp2")]
+position = Vector2(21, 1)

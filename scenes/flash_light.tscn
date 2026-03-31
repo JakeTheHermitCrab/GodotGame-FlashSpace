@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cbokvjx62lqru"]
+
+[ext_resource type="Script" uid="uid://bujqvdb48hhvr" path="res://scripts/flashLight.gd" id="1_v7dw0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wt4or"]
+size = Vector2(7, 7)
+
+[node name="flashLight" type="Area2D" unique_id=1752664906]
+script = ExtResource("1_v7dw0")
+
+[node name="temp" type="Polygon2D" parent="." unique_id=240146030]
+polygon = PackedVector2Array(-3, -4, 4, -4, 4, 3, -3, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1953487657]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_wt4or")
