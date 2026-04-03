@@ -10,3 +10,8 @@ func _process(delta):
 		emit_signal("flashNotClick")
 
 #google for later: is there a way to get input from a mouse that is holding down left click godot
+
+
+func _on_player_flash_light_switch() -> void:
+	show()
+	print("flashlight")

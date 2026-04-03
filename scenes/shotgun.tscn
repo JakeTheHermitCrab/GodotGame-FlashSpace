@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cfm5cgsjsj8aq"]
+
+[ext_resource type="Script" uid="uid://okwf2jsjekgy" path="res://scenes/shotgun.gd" id="1_voyse"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ptbe"]
+size = Vector2(77, 9)
+
+[node name="shotgun" type="Area2D" unique_id=1518196179]
+script = ExtResource("1_voyse")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1598582239]
+polygon = PackedVector2Array(0, -8, 0, 1, 77, 1, 77, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2085151356]
+position = Vector2(38.5, -3.5)
+shape = SubResource("RectangleShape2D_5ptbe")

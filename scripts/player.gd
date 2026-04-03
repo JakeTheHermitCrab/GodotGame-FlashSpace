@@ -15,3 +15,15 @@ func _physics_process(delta: float):
 func movement():
 	var moveDirection = Input.get_vector("left", "right", "up", "down")
 	velocity = moveDirection * SPEED
+
+signal flashLightSwitch
+func _on_main_item_switch_1() -> void:
+	emit_signal("flashLightSwitch")
+
+signal shotGunSwitch
+func _on_main_item_switch_2() -> void:
+	emit_signal("shotGunSwitch")
+#
+#signal compassSwitch
+#func _on_main_item_switch_3() -> void:
+	#pass # Replace with function body.

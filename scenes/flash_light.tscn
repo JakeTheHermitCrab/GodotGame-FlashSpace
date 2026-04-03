@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cbokvjx62lqru"]
 
 [ext_resource type="Script" uid="uid://bujqvdb48hhvr" path="res://scripts/flashLight.gd" id="1_v7dw0"]
-[ext_resource type="Script" uid="uid://bwlalwuw83g7f" path="res://scenes/light.gd" id="2_wt4or"]
+[ext_resource type="Script" uid="uid://bwlalwuw83g7f" path="res://scripts/light.gd" id="2_wt4or"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wt4or"]
 size = Vector2(7, 7)
