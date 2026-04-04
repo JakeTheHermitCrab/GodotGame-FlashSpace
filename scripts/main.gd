@@ -4,6 +4,7 @@ signal itemSwitch1
 signal itemSwitch2
 signal itemSwitch3
 
+
 func _process(delta):
 	if Input.is_action_just_pressed("itemSlot1"):
 		emit_signal("itemSwitch1")

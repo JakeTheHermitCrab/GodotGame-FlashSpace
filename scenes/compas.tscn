@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dawsnfcxawrmi"]
+
+[ext_resource type="Script" uid="uid://c7ubjahkfdoh8" path="res://scripts/compas.gd" id="1_m41mg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qaux6"]
+size = Vector2(18, 29)
+
+[node name="compas" type="Area2D" unique_id=1363159827]
+script = ExtResource("1_m41mg")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=114885981]
+polygon = PackedVector2Array(-1, -7, 17, -7, 17, 22, -1, 22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=339439718]
+position = Vector2(8, 7.5)
+shape = SubResource("RectangleShape2D_qaux6")

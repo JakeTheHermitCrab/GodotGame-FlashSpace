@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bwn71a3u6m4d" path="res://scenes/playerArm.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://cbokvjx62lqru" path="res://scenes/flash_light.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cfm5cgsjsj8aq" path="res://scenes/shotgun.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://dawsnfcxawrmi" path="res://scenes/compas.tscn" id="6_tefeu"]
 
 [node name="main" type="Node" unique_id=941396977]
 script = ExtResource("1_jyhfs")
@@ -21,8 +22,12 @@ position = Vector2(40, 0)
 [node name="shotgun" parent="player/playerArm" unique_id=1518196179 instance=ExtResource("5_tbgi4")]
 position = Vector2(37, 5)
 
+[node name="compas" parent="player/playerArm" unique_id=1363159827 instance=ExtResource("6_tefeu")]
+position = Vector2(30, 0)
+
 [connection signal="itemSwitch1" from="." to="player" method="_on_main_item_switch_1"]
 [connection signal="itemSwitch2" from="." to="player" method="_on_main_item_switch_2"]
 [connection signal="itemSwitch3" from="." to="player" method="_on_main_item_switch_3"]
+[connection signal="compassSwitch" from="player" to="player/playerArm/compas" method="_on_player_compass_switch"]
 [connection signal="flashLightSwitch" from="player" to="player/playerArm/flashLight" method="_on_player_flash_light_switch"]
 [connection signal="shotGunSwitch" from="player" to="player/playerArm/shotgun" method="_on_player_shot_gun_switch"]

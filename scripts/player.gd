@@ -19,11 +19,20 @@ func movement():
 signal flashLightSwitch
 func _on_main_item_switch_1() -> void:
 	emit_signal("flashLightSwitch")
+	Global.isFlashSelected = 1
+	Global.isGunSelected = 0
+	Global.isCompassSelected = 0
 
 signal shotGunSwitch
 func _on_main_item_switch_2() -> void:
 	emit_signal("shotGunSwitch")
+	Global.isFlashSelected = 0
+	Global.isGunSelected = 1
+	Global.isCompassSelected = 0
 #
-#signal compassSwitch
-#func _on_main_item_switch_3() -> void:
-	#pass # Replace with function body.
+signal compassSwitch
+func _on_main_item_switch_3() -> void:
+	emit_signal("compassSwitch")
+	Global.isFlashSelected = 0
+	Global.isGunSelected = 0
+	Global.isCompassSelected = 1
