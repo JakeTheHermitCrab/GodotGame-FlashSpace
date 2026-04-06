@@ -14,3 +14,8 @@ polygon = PackedVector2Array(0, -8, 0, 1, 77, 1, 77, -8)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2085151356]
 position = Vector2(38.5, -3.5)
 shape = SubResource("RectangleShape2D_5ptbe")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1735377724]
+position = Vector2(78, -3)
+target_position = Vector2(478, -2)
+collide_with_areas = true
