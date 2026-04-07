@@ -1,8 +1,9 @@
 extends CharacterBody2D
-
+@export var acceleration: float = 10.0
 
 const SPEED = 300
 var movement_direction: Vector2 = Vector2.ZERO
+
 
 func _physics_process(delta: float):
 	if velocity != Vector2.ZERO:
@@ -11,6 +12,13 @@ func _physics_process(delta: float):
 		rotation = lerp_angle(rotation, mainAngle, delta * rotation_speed)
 	movement()
 	move_and_slide()
+	while Global.gunShoot == 1:
+		var mouseDirection = global_position.direction_to(get_global_mouse_position())
+		var oppositeDireciton = -mouseDirection
+		var targtVelocity = oppositeDireciton * SPEED
+		velocity = velocity.lerp(targtVelocity, acceleration * delta)
+		move_and_slide()
+		
 
 func movement():
 	var moveDirection = Input.get_vector("left", "right", "up", "down")

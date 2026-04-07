@@ -19,3 +19,5 @@ shape = SubResource("RectangleShape2D_5ptbe")
 position = Vector2(78, -3)
 target_position = Vector2(478, -2)
 collide_with_areas = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1398120804]

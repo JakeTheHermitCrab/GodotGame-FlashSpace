@@ -8,12 +8,12 @@ func _ready() -> void:
 
 func _physics_process(delta):
 	gunHide()
-	if Input.is_action_just_pressed("leftClick"):
+	if Input.is_action_just_pressed("leftClick") and Global.isGunSelected == 1:
 		Global.gunShoot = 1
-		if ray_cast_2d.is_colliding():
-			print("hit")
-		else:
-			print("nothing")
+		while Global.gunShoot == 1:
+			Global.gunShoot -= 0.1 * delta
+			
+		
 
 func _on_player_shot_gun_switch() -> void:
 	show()
