@@ -15,7 +15,6 @@ func _physics_process(delta):
 func gunShoot():
 	if Input.is_action_just_pressed("leftClick") and Global.isGunSelected == 1:
 		Global.gunShoot = 1
-		print(Global.gunShoot)
 		if ray_cast_2d.is_colliding():
 			print("bang")
 		else:
@@ -39,6 +38,5 @@ func gunHide():
 
 
 func _on_player_gun_has_shot(player: Node2D) -> void:
-		print("KNockback triggered")
 		var direction = (player.global_position - get_global_mouse_position()).normalized()
-		player.shotKnockBack(direction, 3000.0, 0.25)
+		player.shotKnockBack(direction, 3500.0, 0.25)

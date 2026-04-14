@@ -10,7 +10,7 @@ signal gunHasShot()
 func _physics_process(delta: float) -> void:
 	if knockBackTimer > 0.0:
 		velocity = knockBack
-		knockBack = knockBack.lerp(Vector2.ZERO, 10 * delta)
+		knockBack = knockBack.lerp(Vector2.ZERO, 7 * delta)
 		knockBackTimer -= delta
 		if knockBackTimer <= 0.0:
 			knockBack = Vector2.ZERO
@@ -20,7 +20,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if Global.gunShoot == 1:
-		print("Signal emitted")
 		emit_signal("gunHasShot", self)
 	
 	

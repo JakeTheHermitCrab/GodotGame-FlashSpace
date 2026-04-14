@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bujqvdb48hhvr" path="res://scripts/flashLight.gd" id="1_v7dw0"]
 [ext_resource type="Script" uid="uid://bwlalwuw83g7f" path="res://scripts/light.gd" id="2_wt4or"]
+[ext_resource type="Texture2D" uid="uid://demltojmyi5nj" path="res://icon.svg" id="3_mopl7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wt4or"]
 size = Vector2(7, 7)
@@ -19,11 +20,9 @@ shape = SubResource("RectangleShape2D_wt4or")
 [node name="light" type="Area2D" parent="." unique_id=173916667]
 script = ExtResource("2_wt4or")
 
-[node name="Polygon2D" type="Polygon2D" parent="light" unique_id=661150694]
-polygon = PackedVector2Array(4, -4, 76, -53, 83, -15, 76, 24, 4, 3)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="light" unique_id=1592434521]
-polygon = PackedVector2Array(4, -5, 75, -53, 83, -16, 76, 25, 4, 3)
+[node name="PointLight2D" type="PointLight2D" parent="light" unique_id=874013419]
+blend_mode = 2
+texture = ExtResource("3_mopl7")
 
 [connection signal="flashClick" from="." to="light" method="_on_flash_light_flash_click"]
 [connection signal="flashNotClick" from="." to="light" method="_on_flash_light_flash_not_click"]
