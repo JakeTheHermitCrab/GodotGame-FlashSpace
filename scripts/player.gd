@@ -3,26 +3,47 @@ extends CharacterBody2D
 
 const SPEED = 300
 var movement_direction: Vector2 = Vector2.ZERO
+var knockBack: Vector2 = Vector2.ZERO
+var knockBackTimer: float = 0.0
 
+signal gunHasShot()
+func _physics_process(delta: float) -> void:
+	if knockBackTimer > 0.0:
+		velocity = knockBack
+		knockBack = knockBack.lerp(Vector2.ZERO, 10 * delta)
+		knockBackTimer -= delta
+		if knockBackTimer <= 0.0:
+			knockBack = Vector2.ZERO
+	else:
+		movement()
+	playerSpin(delta)
+	move_and_slide()
+	
+	if Global.gunShoot == 1:
+		print("Signal emitted")
+		emit_signal("gunHasShot", self)
+	
+	
 
-func _physics_process(delta: float):
+func playerSpin(delta: float) -> void:
+	if knockBackTimer > 0.0:
+		return
+		
 	if velocity != Vector2.ZERO:
 		var mainAngle = velocity.angle()
-		var rotation_speed: float = PI * 2
-		rotation = lerp_angle(rotation, mainAngle, delta * rotation_speed)
-	movement()
-	move_and_slide()
-	while Global.gunShoot == 1:
-		var mouseDirection = global_position.direction_to(get_global_mouse_position())
-		var oppositeDireciton = -mouseDirection
-		var targtVelocity = oppositeDireciton * SPEED
-		velocity = velocity.lerp(targtVelocity, acceleration * delta)
-		move_and_slide()
-		
+		var rotationSpeed: float = PI * 2
+		rotation = lerp_angle(rotation, mainAngle, delta * rotationSpeed)
+	
 
 func movement():
 	var moveDirection = Input.get_vector("left", "right", "up", "down")
 	velocity = moveDirection * SPEED
+
+
+func shotKnockBack(direction: Vector2, force: float, knockBackDuration: float) -> void:
+	knockBack = direction.normalized() * force
+	knockBackTimer = knockBackDuration
+	
 
 signal flashLightSwitch
 func _on_main_item_switch_1() -> void:

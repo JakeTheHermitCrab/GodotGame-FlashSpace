@@ -42,4 +42,5 @@ shape = SubResource("RectangleShape2D_tefeu")
 [connection signal="itemSwitch3" from="." to="player" method="_on_main_item_switch_3"]
 [connection signal="compassSwitch" from="player" to="player/playerArm/compas" method="_on_player_compass_switch"]
 [connection signal="flashLightSwitch" from="player" to="player/playerArm/flashLight" method="_on_player_flash_light_switch"]
+[connection signal="gunHasShot" from="player" to="player/playerArm/shotgun" method="_on_player_gun_has_shot"]
 [connection signal="shotGunSwitch" from="player" to="player/playerArm/shotgun" method="_on_player_shot_gun_switch"]
