@@ -2,10 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bujqvdb48hhvr" path="res://scripts/flashLight.gd" id="1_v7dw0"]
 [ext_resource type="Script" uid="uid://bwlalwuw83g7f" path="res://scripts/light.gd" id="2_wt4or"]
-[ext_resource type="Texture2D" uid="uid://demltojmyi5nj" path="res://icon.svg" id="3_mopl7"]
+[ext_resource type="Script" uid="uid://ch87sbd0sj4m2" path="res://scenes/mask.gd" id="3_e286m"]
+[ext_resource type="Shader" uid="uid://dvgiscxnf86fj" path="res://scripts/maskShader.gdshader" id="3_mopl7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wt4or"]
 size = Vector2(7, 7)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e286m"]
+shader = ExtResource("3_mopl7")
 
 [node name="flashLight" type="Area2D" unique_id=1752664906]
 script = ExtResource("1_v7dw0")
@@ -20,9 +24,19 @@ shape = SubResource("RectangleShape2D_wt4or")
 [node name="light" type="Area2D" parent="." unique_id=173916667]
 script = ExtResource("2_wt4or")
 
-[node name="PointLight2D" type="PointLight2D" parent="light" unique_id=874013419]
-blend_mode = 2
-texture = ExtResource("3_mopl7")
+[node name="mask" type="Polygon2D" parent="light" unique_id=1234049015]
+z_index = 4096
+polygon = PackedVector2Array(4, -4, 4, 3, 161, 23, 162, -26)
+script = ExtResource("3_e286m")
+
+[node name="Polygon2D" type="Polygon2D" parent="light/mask" unique_id=2105398725]
+z_index = 4096
+material = SubResource("ShaderMaterial_e286m")
+polygon = PackedVector2Array(-18, -32, -39, -19, -49, -1, -41, 18, -19, 31, 4, 9, 161, 23, 162, -26, 4, -13)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="light" unique_id=626746391]
+z_index = 4096
+polygon = PackedVector2Array(4, -4, 4, 3, 161, 23, 162, -26)
 
 [connection signal="flashClick" from="." to="light" method="_on_flash_light_flash_click"]
 [connection signal="flashNotClick" from="." to="light" method="_on_flash_light_flash_not_click"]

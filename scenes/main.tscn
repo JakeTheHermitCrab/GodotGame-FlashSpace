@@ -14,6 +14,11 @@ size = Vector2(127, 128)
 [node name="main" type="Node" unique_id=941396977]
 script = ExtResource("1_jyhfs")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1876977608]
+offset_right = 1148.0
+offset_bottom = 641.0
+color = Color(0.14406255, 0.14406255, 0.14406255, 1)
+
 [node name="testblock" type="Area2D" parent="." unique_id=1904619850]
 
 [node name="Sprite2D" type="Sprite2D" parent="testblock" unique_id=37593816]
@@ -41,6 +46,16 @@ position = Vector2(37, 5)
 
 [node name="compas" parent="player/playerArm" unique_id=1363159827 instance=ExtResource("6_tefeu")]
 position = Vector2(30, 0)
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="." unique_id=100533381]
+z_index = 100
+copy_mode = 2
+
+[node name="BG" type="ColorRect" parent="BackBufferCopy" unique_id=698903361]
+offset_left = 4.0
+offset_right = 1157.0
+offset_bottom = 650.0
+color = Color(0, 0, 0, 1)
 
 [connection signal="itemSwitch1" from="." to="player" method="_on_main_item_switch_1"]
 [connection signal="itemSwitch2" from="." to="player" method="_on_main_item_switch_2"]
