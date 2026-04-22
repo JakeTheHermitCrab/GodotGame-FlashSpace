@@ -5,3 +5,5 @@ var isGunSelected = 0
 var isCompassSelected = 0
 
 var gunShoot = 0
+
+var rotation = 0

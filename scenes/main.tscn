@@ -3,10 +3,50 @@
 [ext_resource type="Script" uid="uid://ddbqiqvay4dvm" path="res://scripts/main.gd" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://vuyd4iy5enf8" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://bwn71a3u6m4d" path="res://scenes/playerArm.tscn" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://b4w2yn84xhkdo" path="res://scripts/bg_2.gd" id="2_85g3d"]
+[ext_resource type="Texture2D" uid="uid://b3wqgpvu7mu3h" path="res://assets/cranfield-traditional-etching-ink-soft-black.jpg" id="3_choun"]
 [ext_resource type="PackedScene" uid="uid://cbokvjx62lqru" path="res://scenes/flash_light.tscn" id="3_sugp2"]
+[ext_resource type="Texture2D" uid="uid://gy8rm8chctac" path="res://assets/static.png" id="3_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://cfm5cgsjsj8aq" path="res://scenes/shotgun.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dawsnfcxawrmi" path="res://scenes/compas.tscn" id="6_tefeu"]
 [ext_resource type="Texture2D" uid="uid://demltojmyi5nj" path="res://icon.svg" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://dgienq4igj2ro" path="res://scripts/bg.gd" id="8_tipki"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb6dy"]
+atlas = ExtResource("3_ya4ey")
+region = Rect2(0, 0, 480, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trceg"]
+atlas = ExtResource("3_ya4ey")
+region = Rect2(480, 0, 480, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8y0u"]
+atlas = ExtResource("3_ya4ey")
+region = Rect2(960, 0, 480, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkv2x"]
+atlas = ExtResource("3_ya4ey")
+region = Rect2(1440, 0, 480, 360)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jbj1t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eb6dy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trceg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8y0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkv2x")
+}],
+"loop": true,
+"name": &"static",
+"speed": 100.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
 size = Vector2(127, 128)
@@ -14,10 +54,52 @@ size = Vector2(127, 128)
 [node name="main" type="Node" unique_id=941396977]
 script = ExtResource("1_jyhfs")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1876977608]
-offset_right = 1148.0
-offset_bottom = 641.0
-color = Color(0.14406255, 0.14406255, 0.14406255, 1)
+[node name="Node2D" type="Node2D" parent="." unique_id=1936004290]
+
+[node name="BG2" type="Node2D" parent="Node2D" unique_id=972963369]
+position = Vector2(571, 318)
+script = ExtResource("2_85g3d")
+
+[node name="ColorRect" type="AnimatedSprite2D" parent="Node2D/BG2" unique_id=1880321266]
+position = Vector2(2.5, 8)
+scale = Vector2(9.4140625, 5.65625)
+sprite_frames = SubResource("SpriteFrames_jbj1t")
+animation = &"static"
+autoplay = "static"
+frame_progress = 0.75526357
+
+[node name="player" parent="Node2D" unique_id=555492990 instance=ExtResource("1_o5qli")]
+visibility_layer = 2
+position = Vector2(539, 339)
+
+[node name="playerArm" parent="Node2D/player" unique_id=105793147 instance=ExtResource("2_0wfyh")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(2, -10)
+
+[node name="flashLight" parent="Node2D/player/playerArm" unique_id=1752664906 instance=ExtResource("3_sugp2")]
+position = Vector2(40, 0)
+
+[node name="shotgun" parent="Node2D/player/playerArm" unique_id=1518196179 instance=ExtResource("5_tbgi4")]
+position = Vector2(37, 5)
+
+[node name="compas" parent="Node2D/player/playerArm" unique_id=1363159827 instance=ExtResource("6_tefeu")]
+position = Vector2(30, 0)
+
+[node name="Camera2D" type="Camera2D" parent="Node2D/player" unique_id=1230174598]
+position = Vector2(33, -22)
+zoom = Vector2(1.045, 1.045)
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="Node2D/player/Camera2D" unique_id=100533381]
+z_index = 100
+position = Vector2(-538, -337)
+copy_mode = 2
+
+[node name="BG" type="Sprite2D" parent="Node2D/player/Camera2D/BackBufferCopy" unique_id=381321976]
+position = Vector2(547, 340.5)
+scale = Vector2(9.578125, 5.429688)
+texture = ExtResource("3_choun")
+script = ExtResource("8_tipki")
 
 [node name="testblock" type="Area2D" parent="." unique_id=1904619850]
 
@@ -29,38 +111,10 @@ texture = ExtResource("7_o6xl0")
 position = Vector2(492.5, 165)
 shape = SubResource("RectangleShape2D_o6xl0")
 
-[node name="player" parent="." unique_id=555492990 instance=ExtResource("1_o5qli")]
-visibility_layer = 2
-position = Vector2(539, 339)
-
-[node name="playerArm" parent="player" unique_id=105793147 instance=ExtResource("2_0wfyh")]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(2, -10)
-
-[node name="flashLight" parent="player/playerArm" unique_id=1752664906 instance=ExtResource("3_sugp2")]
-position = Vector2(40, 0)
-
-[node name="shotgun" parent="player/playerArm" unique_id=1518196179 instance=ExtResource("5_tbgi4")]
-position = Vector2(37, 5)
-
-[node name="compas" parent="player/playerArm" unique_id=1363159827 instance=ExtResource("6_tefeu")]
-position = Vector2(30, 0)
-
-[node name="BackBufferCopy" type="BackBufferCopy" parent="." unique_id=100533381]
-z_index = 100
-copy_mode = 2
-
-[node name="BG" type="ColorRect" parent="BackBufferCopy" unique_id=698903361]
-offset_left = 4.0
-offset_right = 1157.0
-offset_bottom = 650.0
-color = Color(0, 0, 0, 1)
-
-[connection signal="itemSwitch1" from="." to="player" method="_on_main_item_switch_1"]
-[connection signal="itemSwitch2" from="." to="player" method="_on_main_item_switch_2"]
-[connection signal="itemSwitch3" from="." to="player" method="_on_main_item_switch_3"]
-[connection signal="compassSwitch" from="player" to="player/playerArm/compas" method="_on_player_compass_switch"]
-[connection signal="flashLightSwitch" from="player" to="player/playerArm/flashLight" method="_on_player_flash_light_switch"]
-[connection signal="gunHasShot" from="player" to="player/playerArm/shotgun" method="_on_player_gun_has_shot"]
-[connection signal="shotGunSwitch" from="player" to="player/playerArm/shotgun" method="_on_player_shot_gun_switch"]
+[connection signal="itemSwitch1" from="." to="Node2D/player" method="_on_main_item_switch_1"]
+[connection signal="itemSwitch2" from="." to="Node2D/player" method="_on_main_item_switch_2"]
+[connection signal="itemSwitch3" from="." to="Node2D/player" method="_on_main_item_switch_3"]
+[connection signal="compassSwitch" from="Node2D/player" to="Node2D/player/playerArm/compas" method="_on_player_compass_switch"]
+[connection signal="flashLightSwitch" from="Node2D/player" to="Node2D/player/playerArm/flashLight" method="_on_player_flash_light_switch"]
+[connection signal="gunHasShot" from="Node2D/player" to="Node2D/player/playerArm/shotgun" method="_on_player_gun_has_shot"]
+[connection signal="shotGunSwitch" from="Node2D/player" to="Node2D/player/playerArm/shotgun" method="_on_player_shot_gun_switch"]

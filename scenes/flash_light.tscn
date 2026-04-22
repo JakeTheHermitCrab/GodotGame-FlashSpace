@@ -26,17 +26,17 @@ script = ExtResource("2_wt4or")
 
 [node name="mask" type="Polygon2D" parent="light" unique_id=1234049015]
 z_index = 4096
-polygon = PackedVector2Array(4, -4, 4, 3, 161, 23, 162, -26)
+polygon = PackedVector2Array(4, -4, 4, 3, 315, 43, 332, 22, 340, -5, 333, -27, 315, -44)
 script = ExtResource("3_e286m")
 
 [node name="Polygon2D" type="Polygon2D" parent="light/mask" unique_id=2105398725]
 z_index = 4096
 material = SubResource("ShaderMaterial_e286m")
-polygon = PackedVector2Array(-18, -32, -39, -19, -49, -1, -41, 18, -19, 31, 4, 9, 161, 23, 162, -26, 4, -13)
+polygon = PackedVector2Array(-18, -32, -39, -19, -49, -1, -41, 18, -19, 31, 4, 9, 315, 43, 332, 22, 340, -5, 333, -27, 315, -44, 4, -13)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="light" unique_id=626746391]
 z_index = 4096
-polygon = PackedVector2Array(4, -4, 4, 3, 161, 23, 162, -26)
+polygon = PackedVector2Array(4, -4, 4, 3, 315, 43, 332, 22, 340, -5, 333, -27, 315, -44)
 
 [connection signal="flashClick" from="." to="light" method="_on_flash_light_flash_click"]
 [connection signal="flashNotClick" from="." to="light" method="_on_flash_light_flash_not_click"]
