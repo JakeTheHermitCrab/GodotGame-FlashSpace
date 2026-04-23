@@ -7,7 +7,7 @@ signal flashNotClick
 
 func _physics_process(delta):
 	flashHide()
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Global.isFlashSelected == 1:
 		emit_signal("flashClick")
 	else:
 		emit_signal("flashNotClick")

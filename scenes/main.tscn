@@ -54,50 +54,50 @@ size = Vector2(127, 128)
 [node name="main" type="Node" unique_id=941396977]
 script = ExtResource("1_jyhfs")
 
-[node name="Node2D" type="Node2D" parent="." unique_id=1936004290]
+[node name="playerRelated" type="Node2D" parent="." unique_id=1936004290]
 
-[node name="BG2" type="Node2D" parent="Node2D" unique_id=972963369]
+[node name="BG2" type="Node2D" parent="playerRelated" unique_id=972963369]
 position = Vector2(571, 318)
 script = ExtResource("2_85g3d")
 
-[node name="ColorRect" type="AnimatedSprite2D" parent="Node2D/BG2" unique_id=1880321266]
-position = Vector2(2.5, 8)
-scale = Vector2(9.4140625, 5.65625)
+[node name="ColorRect" type="AnimatedSprite2D" parent="playerRelated/BG2" unique_id=1880321266]
+position = Vector2(4.0000134, 21.500053)
+scale = Vector2(2.4583333, 1.8972224)
 sprite_frames = SubResource("SpriteFrames_jbj1t")
 animation = &"static"
 autoplay = "static"
 frame_progress = 0.75526357
 
-[node name="player" parent="Node2D" unique_id=555492990 instance=ExtResource("1_o5qli")]
+[node name="player" parent="playerRelated" unique_id=555492990 instance=ExtResource("1_o5qli")]
 visibility_layer = 2
 position = Vector2(539, 339)
 
-[node name="playerArm" parent="Node2D/player" unique_id=105793147 instance=ExtResource("2_0wfyh")]
+[node name="playerArm" parent="playerRelated/player" unique_id=105793147 instance=ExtResource("2_0wfyh")]
 light_mask = 2
 visibility_layer = 2
 position = Vector2(2, -10)
 
-[node name="flashLight" parent="Node2D/player/playerArm" unique_id=1752664906 instance=ExtResource("3_sugp2")]
+[node name="flashLight" parent="playerRelated/player/playerArm" unique_id=1752664906 instance=ExtResource("3_sugp2")]
 position = Vector2(40, 0)
 
-[node name="shotgun" parent="Node2D/player/playerArm" unique_id=1518196179 instance=ExtResource("5_tbgi4")]
+[node name="shotgun" parent="playerRelated/player/playerArm" unique_id=1518196179 instance=ExtResource("5_tbgi4")]
 position = Vector2(37, 5)
 
-[node name="compas" parent="Node2D/player/playerArm" unique_id=1363159827 instance=ExtResource("6_tefeu")]
+[node name="compas" parent="playerRelated/player/playerArm" unique_id=1363159827 instance=ExtResource("6_tefeu")]
 position = Vector2(30, 0)
 
-[node name="Camera2D" type="Camera2D" parent="Node2D/player" unique_id=1230174598]
+[node name="Camera2D" type="Camera2D" parent="playerRelated/player" unique_id=1230174598]
 position = Vector2(33, -22)
 zoom = Vector2(1.045, 1.045)
 
-[node name="BackBufferCopy" type="BackBufferCopy" parent="Node2D/player/Camera2D" unique_id=100533381]
+[node name="BackBufferCopy" type="BackBufferCopy" parent="playerRelated/player/Camera2D" unique_id=100533381]
 z_index = 100
 position = Vector2(-538, -337)
 copy_mode = 2
 
-[node name="BG" type="Sprite2D" parent="Node2D/player/Camera2D/BackBufferCopy" unique_id=381321976]
-position = Vector2(547, 340.5)
-scale = Vector2(9.578125, 5.429688)
+[node name="BG" type="Sprite2D" parent="playerRelated/player/Camera2D/BackBufferCopy" unique_id=381321976]
+position = Vector2(540.99994, 356.49997)
+scale = Vector2(2.5826087, 2.7204726)
 texture = ExtResource("3_choun")
 script = ExtResource("8_tipki")
 
@@ -111,10 +111,10 @@ texture = ExtResource("7_o6xl0")
 position = Vector2(492.5, 165)
 shape = SubResource("RectangleShape2D_o6xl0")
 
-[connection signal="itemSwitch1" from="." to="Node2D/player" method="_on_main_item_switch_1"]
-[connection signal="itemSwitch2" from="." to="Node2D/player" method="_on_main_item_switch_2"]
-[connection signal="itemSwitch3" from="." to="Node2D/player" method="_on_main_item_switch_3"]
-[connection signal="compassSwitch" from="Node2D/player" to="Node2D/player/playerArm/compas" method="_on_player_compass_switch"]
-[connection signal="flashLightSwitch" from="Node2D/player" to="Node2D/player/playerArm/flashLight" method="_on_player_flash_light_switch"]
-[connection signal="gunHasShot" from="Node2D/player" to="Node2D/player/playerArm/shotgun" method="_on_player_gun_has_shot"]
-[connection signal="shotGunSwitch" from="Node2D/player" to="Node2D/player/playerArm/shotgun" method="_on_player_shot_gun_switch"]
+[connection signal="itemSwitch1" from="." to="playerRelated/player" method="_on_main_item_switch_1"]
+[connection signal="itemSwitch2" from="." to="playerRelated/player" method="_on_main_item_switch_2"]
+[connection signal="itemSwitch3" from="." to="playerRelated/player" method="_on_main_item_switch_3"]
+[connection signal="compassSwitch" from="playerRelated/player" to="playerRelated/player/playerArm/compas" method="_on_player_compass_switch"]
+[connection signal="flashLightSwitch" from="playerRelated/player" to="playerRelated/player/playerArm/flashLight" method="_on_player_flash_light_switch"]
+[connection signal="gunHasShot" from="playerRelated/player" to="playerRelated/player/playerArm/shotgun" method="_on_player_gun_has_shot"]
+[connection signal="shotGunSwitch" from="playerRelated/player" to="playerRelated/player/playerArm/shotgun" method="_on_player_shot_gun_switch"]
