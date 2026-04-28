@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://gy8rm8chctac" path="res://assets/static.png" id="3_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://cfm5cgsjsj8aq" path="res://scenes/shotgun.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dawsnfcxawrmi" path="res://scenes/compas.tscn" id="6_tefeu"]
-[ext_resource type="Texture2D" uid="uid://demltojmyi5nj" path="res://icon.svg" id="7_o6xl0"]
 [ext_resource type="Script" uid="uid://dgienq4igj2ro" path="res://scripts/bg.gd" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://bqq1y5c37rru7" path="res://scenes/object.tscn" id="12_eb6dy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eb6dy"]
 atlas = ExtResource("3_ya4ey")
@@ -47,9 +47,6 @@ animations = [{
 "name": &"static",
 "speed": 100.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
-size = Vector2(127, 128)
 
 [node name="main" type="Node" unique_id=941396977]
 script = ExtResource("1_jyhfs")
@@ -101,15 +98,14 @@ scale = Vector2(2.5826087, 2.7204726)
 texture = ExtResource("3_choun")
 script = ExtResource("8_tipki")
 
-[node name="testblock" type="Area2D" parent="." unique_id=1904619850]
+[node name="object" parent="." unique_id=1924339480 instance=ExtResource("12_eb6dy")]
+position = Vector2(437, 296)
 
-[node name="Sprite2D" type="Sprite2D" parent="testblock" unique_id=37593816]
-position = Vector2(493, 165)
-texture = ExtResource("7_o6xl0")
+[node name="object2" parent="." unique_id=1793738285 instance=ExtResource("12_eb6dy")]
+position = Vector2(637, 115)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="testblock" unique_id=614742051]
-position = Vector2(492.5, 165)
-shape = SubResource("RectangleShape2D_o6xl0")
+[node name="object3" parent="." unique_id=854862247 instance=ExtResource("12_eb6dy")]
+position = Vector2(790, 490)
 
 [connection signal="itemSwitch1" from="." to="playerRelated/player" method="_on_main_item_switch_1"]
 [connection signal="itemSwitch2" from="." to="playerRelated/player" method="_on_main_item_switch_2"]
