@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bqq1y5c37rru7"]
 
-[ext_resource type="Script" uid="uid://b642k1v2nn1sg" path="res://object.gd" id="1_cbfvs"]
+[ext_resource type="Script" uid="uid://b642k1v2nn1sg" path="res://scripts/object.gd" id="1_cbfvs"]
 [ext_resource type="Texture2D" uid="uid://demltojmyi5nj" path="res://icon.svg" id="2_a0y2b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qvdj"]
@@ -16,3 +16,5 @@ texture = ExtResource("2_a0y2b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=798301575]
 shape = SubResource("RectangleShape2D_6qvdj")
+
+[node name="Timer" type="Timer" parent="." unique_id=318442123]

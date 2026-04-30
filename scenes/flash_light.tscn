@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bujqvdb48hhvr" path="res://scripts/flashLight.gd" id="1_v7dw0"]
 [ext_resource type="Script" uid="uid://bwlalwuw83g7f" path="res://scripts/light.gd" id="2_wt4or"]
-[ext_resource type="Script" uid="uid://ch87sbd0sj4m2" path="res://scenes/mask.gd" id="3_e286m"]
+[ext_resource type="Script" uid="uid://ch87sbd0sj4m2" path="res://scripts/mask.gd" id="3_e286m"]
 [ext_resource type="Shader" uid="uid://dvgiscxnf86fj" path="res://scripts/maskShader.gdshader" id="3_mopl7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wt4or"]

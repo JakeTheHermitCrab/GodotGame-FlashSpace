@@ -75,7 +75,7 @@ visibility_layer = 2
 position = Vector2(2, -10)
 
 [node name="flashLight" parent="playerRelated/player/playerArm" unique_id=1752664906 instance=ExtResource("3_sugp2")]
-position = Vector2(40, 0)
+position = Vector2(39, 0)
 
 [node name="shotgun" parent="playerRelated/player/playerArm" unique_id=1518196179 instance=ExtResource("5_tbgi4")]
 position = Vector2(37, 5)
@@ -100,12 +100,6 @@ script = ExtResource("8_tipki")
 
 [node name="object" parent="." unique_id=1924339480 instance=ExtResource("12_eb6dy")]
 position = Vector2(437, 296)
-
-[node name="object2" parent="." unique_id=1793738285 instance=ExtResource("12_eb6dy")]
-position = Vector2(637, 115)
-
-[node name="object3" parent="." unique_id=854862247 instance=ExtResource("12_eb6dy")]
-position = Vector2(790, 490)
 
 [connection signal="itemSwitch1" from="." to="playerRelated/player" method="_on_main_item_switch_1"]
 [connection signal="itemSwitch2" from="." to="playerRelated/player" method="_on_main_item_switch_2"]
