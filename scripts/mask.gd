@@ -10,3 +10,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	pass
 		
+
+
+func _on_light_fade() -> void:
+	pass # Replace with function body.

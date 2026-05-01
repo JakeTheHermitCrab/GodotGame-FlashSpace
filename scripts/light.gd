@@ -1,6 +1,6 @@
 extends Area2D
 
-
+signal fade
 
 func _ready():
 	hide()

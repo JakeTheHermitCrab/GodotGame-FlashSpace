@@ -40,3 +40,4 @@ polygon = PackedVector2Array(4, -4, 4, 3, 315, 43, 332, 22, 340, -5, 333, -27, 3
 
 [connection signal="flashClick" from="." to="light" method="_on_flash_light_flash_click"]
 [connection signal="flashNotClick" from="." to="light" method="_on_flash_light_flash_not_click"]
+[connection signal="fade" from="light" to="light/mask" method="_on_light_fade"]
