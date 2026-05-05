@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://mjp018cxanp7"]
+
+[node name="endScreen" type="Node2D" unique_id=119660030]
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1296729112]
+position = Vector2(553, 232)
+scale = Vector2(2.6015038, 1)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-58, -19, 73, -18, 74, 64, -59, 65)
+
+[node name="Label" type="Label" parent="." unique_id=2004981656]
+offset_left = 508.0
+offset_top = 243.0
+offset_right = 626.0
+offset_bottom = 266.0
+text = "YOU WIN YIPIE!!!"

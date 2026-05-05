@@ -4,6 +4,11 @@ signal itemSwitch1
 signal itemSwitch2
 signal itemSwitch3
 
+var object = preload("res://scenes/object.tscn")
+var objectCount = 20
+
+func _ready():
+	objectSpawn()
 
 func _process(delta):
 	if Input.is_action_just_pressed("itemSlot1"):
@@ -14,3 +19,14 @@ func _process(delta):
 		else:
 			if Input.is_action_just_pressed("itemSlot3"):
 				emit_signal("itemSwitch3")
+	
+
+func _on_static_body_2d_game_won() -> void:
+	get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
+
+func objectSpawn():
+	for i in range(objectCount):
+		var instance = object.instantiate()
+		var randomPos = Vector2(randf_range(0,1152), randf_range(0, 648))
+		instance.global_position = randomPos
+		add_child(instance)

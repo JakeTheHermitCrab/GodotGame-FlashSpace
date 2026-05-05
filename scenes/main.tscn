@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cfm5cgsjsj8aq" path="res://scenes/shotgun.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dawsnfcxawrmi" path="res://scenes/compas.tscn" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://dgienq4igj2ro" path="res://scripts/bg.gd" id="8_tipki"]
-[ext_resource type="PackedScene" uid="uid://bqq1y5c37rru7" path="res://scenes/object.tscn" id="12_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://b4u8yb8a2lmli" path="res://scenes/end_point.tscn" id="12_trceg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eb6dy"]
 atlas = ExtResource("3_ya4ey")
@@ -98,8 +98,10 @@ scale = Vector2(2.5826087, 2.7204726)
 texture = ExtResource("3_choun")
 script = ExtResource("8_tipki")
 
-[node name="object" parent="." unique_id=1924339480 instance=ExtResource("12_eb6dy")]
-position = Vector2(437, 296)
+[node name="objects" type="Node" parent="." unique_id=273558827]
+
+[node name="StaticBody2D" parent="objects" unique_id=1501448429 instance=ExtResource("12_trceg")]
+position = Vector2(214, 359)
 
 [connection signal="itemSwitch1" from="." to="playerRelated/player" method="_on_main_item_switch_1"]
 [connection signal="itemSwitch2" from="." to="playerRelated/player" method="_on_main_item_switch_2"]
@@ -108,3 +110,4 @@ position = Vector2(437, 296)
 [connection signal="flashLightSwitch" from="playerRelated/player" to="playerRelated/player/playerArm/flashLight" method="_on_player_flash_light_switch"]
 [connection signal="gunHasShot" from="playerRelated/player" to="playerRelated/player/playerArm/shotgun" method="_on_player_gun_has_shot"]
 [connection signal="shotGunSwitch" from="playerRelated/player" to="playerRelated/player/playerArm/shotgun" method="_on_player_shot_gun_switch"]
+[connection signal="gameWon" from="objects/StaticBody2D" to="." method="_on_static_body_2d_game_won"]
