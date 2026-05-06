@@ -5,10 +5,13 @@ signal itemSwitch2
 signal itemSwitch3
 
 var object = preload("res://scenes/object.tscn")
+var endPoint = preload("res://scenes/end_point.tscn")
 var objectCount = 400
 
 func _ready():
+	endSpawn()
 	objectSpawn()
+	
 
 func _process(delta):
 	if Input.is_action_just_pressed("itemSlot1"):
@@ -30,3 +33,9 @@ func objectSpawn():
 		var randomPos = Vector2(randf_range(3000,-3000), randf_range(3000,-3000))
 		instance.global_position = randomPos
 		add_child(instance)
+func endSpawn():
+	var instance = endPoint.instantiate()
+	var randomPos = Vector2(randf_range(3000,-3000), randf_range(3000,-3000))
+	instance.global_position = randomPos
+	instance.gameWon.connect(_on_static_body_2d_game_won)
+	add_child(instance)
