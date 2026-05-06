@@ -15,4 +15,11 @@ texture = ExtResource("1_5pkkc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1860486706]
 shape = SubResource("RectangleShape2D_5pkkc")
 
+[node name="Label" type="Label" parent="." unique_id=577765694]
+offset_left = -17.0
+offset_top = -68.0
+offset_right = 23.0
+offset_bottom = -45.0
+text = "END"
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

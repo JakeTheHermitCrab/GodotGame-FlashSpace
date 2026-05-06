@@ -5,7 +5,7 @@ signal itemSwitch2
 signal itemSwitch3
 
 var object = preload("res://scenes/object.tscn")
-var objectCount = 20
+var objectCount = 400
 
 func _ready():
 	objectSpawn()
@@ -27,6 +27,6 @@ func _on_static_body_2d_game_won() -> void:
 func objectSpawn():
 	for i in range(objectCount):
 		var instance = object.instantiate()
-		var randomPos = Vector2(randf_range(0,1152), randf_range(0, 648))
+		var randomPos = Vector2(randf_range(3000,-3000), randf_range(3000,-3000))
 		instance.global_position = randomPos
 		add_child(instance)
