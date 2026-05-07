@@ -53,6 +53,7 @@ script = ExtResource("1_jyhfs")
 [node name="playerRelated" type="Node2D" parent="." unique_id=1936004290]
 
 [node name="BG2" type="Node2D" parent="playerRelated" unique_id=972963369]
+visible = false
 position = Vector2(571, 318)
 script = ExtResource("2_85g3d")
 
@@ -83,6 +84,7 @@ position = Vector2(37, 5)
 position = Vector2(30, 0)
 
 [node name="Camera2D" type="Camera2D" parent="playerRelated/player" unique_id=1230174598]
+visible = false
 position = Vector2(33, -22)
 zoom = Vector2(1.045, 1.045)
 
