@@ -4,25 +4,21 @@ extends CharacterBody2D
 @onready var ray: RayCast2D = $RayCast2D
 
 
-var speed = 200
+var speed = 5
 var turnStrength = 2.0
 func _ready():
-	agent.avoidance_enabled = true
-	
+	pass
 
 func _physics_process(delta):
-	agent.target_position = player.global_position
 	if agent.is_navigation_finished():
+		agent.target_position = player.global_position
+		velocity = Vector2.ZERO
 		return
-	var current_pos = global_position
 	var next_path_pos = agent.get_next_path_position()
-	#var new_velocity = (next_path_pos - current_pos).normalized() * speed
-	var dir = (agent.get_next_path_position() - global_position).normalized()
-	ray.target_position = dir * 120
-	ray.force_raycast_update()
-	if ray.is_colliding():
-		var normal = ray.get_collision_normal()
-		var side = dir.rotated(PI / 2)
-		dir = (dir + side * turnStrength).normalized
-		velocity = dir * speed
-	move_and_slide()
+	var new_velocity = global_position.direction_to(next_path_pos) * speed
+	if agent.avoidance_enabled:
+		agent.set_velocity(new_velocity)
+	else:
+		velocity = new_velocity
+		move_and_slide()
+	
