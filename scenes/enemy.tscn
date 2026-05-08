@@ -14,3 +14,17 @@ texture = ExtResource("2_4ra3w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1594736226]
 shape = SubResource("RectangleShape2D_5uy6h")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=403966840]
+avoidance_enabled = true
+radius = 100.0
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1694817426]
+exclude_parent = false
+target_position = Vector2(299, 0)
+
+[node name="RayCast2D2" type="RayCast2D" parent="." unique_id=1108931993]
+target_position = Vector2(280, -45)
+
+[node name="RayCast2D3" type="RayCast2D" parent="." unique_id=285283369]
+target_position = Vector2(273, 52)
