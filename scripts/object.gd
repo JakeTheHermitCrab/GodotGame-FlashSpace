@@ -1,5 +1,7 @@
 extends StaticBody2D
-# this object needs to randomly spawn outside of the camera and despawn at a certain distance. This object needs to slowly move in a random direction while also spinning
+@onready var object: StaticBody2D = $"."
+
 func _ready():
-	await get_tree().process_frame
-	print("nav_rid:", $NavigationObstacle2D.get_navigation_map())
+	if has_node("NavigationObstacle2D"):
+		$NavigationObject2D.enabled = true
+		$NavigationObject2D.avoidance_enabled = true

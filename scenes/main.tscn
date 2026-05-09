@@ -74,7 +74,7 @@ script = ExtResource("1_jyhfs")
 navigation_polygon = SubResource("NavigationPolygon_trceg")
 script = ExtResource("2_a8y0u")
 
-[node name="enemy" parent="." unique_id=347087174 instance=ExtResource("12_eb6dy")]
+[node name="enemy" parent="NavigationRegion2D" unique_id=347087174 instance=ExtResource("12_eb6dy")]
 
 [node name="playerRelated" type="Node2D" parent="." unique_id=1936004290]
 

@@ -27,28 +27,34 @@ func _on_static_body_2d_game_won() -> void:
 	get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
 
 func objectSpawn():
-		var spawnPosition = []
-		var minDist = 150.0
-		for i in range(objectCount):
-			#var instance = object.instantiate()
-			#var randomPos = Vector2(randf_range(6000,-5000), randf_range(5000,-5000))
-			#instance.global_position = randomPos
-			var validPos = false
-			var newPos = Vector2.ZERO
-			var attempts = 0
-			while !validPos and attempts < 100:
-				newPos = Vector2(randf_range(-5000, 6000), randf_range(-5000, 5000))
-				validPos = true
-				for pos in spawnPosition:
-					if newPos.distance_to(pos) < minDist:
-						validPos = false
-						break
-				attempts += 1
-			if validPos:
-				var instance = object.instantiate()
-				instance.global_position = newPos
-				spawnPosition.append(newPos)
-				add_child(instance)
+	var spawnPosition = []
+	var minDist = 150.0
+
+	for i in range(objectCount):
+
+		var validPos = false
+		var newPos = Vector2.ZERO
+		var attempts = 0
+
+		while !validPos and attempts < 100:
+			newPos = Vector2(randf_range(-5000, 6000), randf_range(-5000, 5000))
+			validPos = true
+
+			for pos in spawnPosition:
+				if newPos.distance_to(pos) < minDist:
+					validPos = false
+					break
+
+			attempts += 1
+
+		if validPos:
+			var instance = object.instantiate()
+			instance.global_position = newPos
+			add_child(instance)
+
+			spawnPosition.append(newPos)
+
+			await instance.ready
 
 func endSpawn():
 	var instance = endPoint.instantiate()
