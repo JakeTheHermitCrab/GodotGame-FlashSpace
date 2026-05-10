@@ -1,18 +1,35 @@
 [gd_scene format=3 uid="uid://cfm5cgsjsj8aq"]
 
 [ext_resource type="Script" uid="uid://okwf2jsjekgy" path="res://scripts/shotgun.gd" id="1_voyse"]
+[ext_resource type="Texture2D" uid="uid://dbv072ncdd0op" path="res://assets/Flash-space-player.png" id="2_gnj2g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ya1i"]
+atlas = ExtResource("2_gnj2g")
+region = Rect2(170, 85, 85, 85)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w47vr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ya1i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ptbe"]
-size = Vector2(77, 9)
+size = Vector2(77, 16)
 
 [node name="shotgun" type="Area2D" unique_id=1518196179]
 script = ExtResource("1_voyse")
 
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1598582239]
-polygon = PackedVector2Array(0, -8, 0, 1, 77, 1, 77, -8)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=319303559]
+position = Vector2(41, 0)
+sprite_frames = SubResource("SpriteFrames_w47vr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2085151356]
-position = Vector2(38.5, -3.5)
+position = Vector2(38.5, -4)
 shape = SubResource("RectangleShape2D_5ptbe")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1735377724]

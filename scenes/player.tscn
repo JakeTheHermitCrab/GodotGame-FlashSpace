@@ -1,18 +1,33 @@
 [gd_scene format=3 uid="uid://vuyd4iy5enf8"]
 
 [ext_resource type="Script" uid="uid://n58hc37ckkjm" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://dbv072ncdd0op" path="res://assets/Flash-space-player.png" id="2_g2els"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
+atlas = ExtResource("2_g2els")
+region = Rect2(0, 170, 85, 85)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qhqgy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2els")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(18, 31)
+size = Vector2(31, 65)
 
 [node name="player" type="CharacterBody2D" unique_id=555492990]
 light_mask = 2
 script = ExtResource("1_3vyb7")
 
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1922720757]
-position = Vector2(4, 2)
-scale = Vector2(1, 0.3647059)
-polygon = PackedVector2Array(-13, -49, 5, -49, 5, 36, -13, 36)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1658595247]
+sprite_frames = SubResource("SpriteFrames_qhqgy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=592055892]
+position = Vector2(0.5, 8.5)
 shape = SubResource("RectangleShape2D_g2els")

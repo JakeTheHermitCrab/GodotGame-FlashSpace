@@ -1,6 +1,34 @@
 [gd_scene format=3 uid="uid://bwn71a3u6m4d"]
 
 [ext_resource type="Script" uid="uid://bp0q2pshvn8br" path="res://scripts/MainArm.gd" id="1_lj8jo"]
+[ext_resource type="Texture2D" uid="uid://dbv072ncdd0op" path="res://assets/Flash-space-player.png" id="2_h317b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h317b"]
+atlas = ExtResource("2_h317b")
+region = Rect2(85, 85, 85, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1c2cy"]
+atlas = ExtResource("2_h317b")
+region = Rect2(85, 170, 85, 85)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2t5bu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h317b")
+}],
+"loop": true,
+"name": &"arm_bent",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1c2cy")
+}],
+"loop": false,
+"name": &"arm_straight",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2brh"]
 size = Vector2(42, 9)
@@ -9,8 +37,10 @@ size = Vector2(42, 9)
 collision_layer = 2
 script = ExtResource("1_lj8jo")
 
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=798075398]
-polygon = PackedVector2Array(-5, -5, 37, -5, 37, 4, -5, 4)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1742328655]
+position = Vector2(16, 4)
+sprite_frames = SubResource("SpriteFrames_2t5bu")
+animation = &"arm_straight"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1554841532]
 light_mask = 4

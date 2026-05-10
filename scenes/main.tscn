@@ -96,13 +96,15 @@ visibility_layer = 2
 position = Vector2(2, -10)
 
 [node name="flashLight" parent="playerRelated/player/playerArm" unique_id=1752664906 instance=ExtResource("3_sugp2")]
-position = Vector2(39, 0)
+z_index = -1
+position = Vector2(39, 4)
 
 [node name="shotgun" parent="playerRelated/player/playerArm" unique_id=1518196179 instance=ExtResource("5_tbgi4")]
-position = Vector2(37, 5)
+z_index = -1
+position = Vector2(-8, 8)
 
 [node name="compas" parent="playerRelated/player/playerArm" unique_id=1363159827 instance=ExtResource("6_tefeu")]
-position = Vector2(30, 0)
+position = Vector2(32, -1)
 
 [node name="Camera2D" type="Camera2D" parent="playerRelated/player" unique_id=1230174598]
 position = Vector2(33, -22)
@@ -178,8 +180,11 @@ enter_cost = 1.0
 script = ExtResource("2_a8y0u")
 
 [connection signal="itemSwitch1" from="." to="playerRelated/player" method="_on_main_item_switch_1"]
+[connection signal="itemSwitch1" from="." to="playerRelated/player/playerArm" method="_on_main_item_switch_1"]
 [connection signal="itemSwitch2" from="." to="playerRelated/player" method="_on_main_item_switch_2"]
+[connection signal="itemSwitch2" from="." to="playerRelated/player/playerArm" method="_on_main_item_switch_2"]
 [connection signal="itemSwitch3" from="." to="playerRelated/player" method="_on_main_item_switch_3"]
+[connection signal="itemSwitch3" from="." to="playerRelated/player/playerArm" method="_on_main_item_switch_3"]
 [connection signal="compassSwitch" from="playerRelated/player" to="playerRelated/player/playerArm/compas" method="_on_player_compass_switch"]
 [connection signal="flashLightSwitch" from="playerRelated/player" to="playerRelated/player/playerArm/flashLight" method="_on_player_flash_light_switch"]
 [connection signal="gunHasShot" from="playerRelated/player" to="playerRelated/player/playerArm/shotgun" method="_on_player_gun_has_shot"]

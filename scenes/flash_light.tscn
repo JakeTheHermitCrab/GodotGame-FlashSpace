@@ -1,12 +1,28 @@
 [gd_scene format=3 uid="uid://cbokvjx62lqru"]
 
 [ext_resource type="Script" uid="uid://bujqvdb48hhvr" path="res://scripts/flashLight.gd" id="1_v7dw0"]
+[ext_resource type="Texture2D" uid="uid://dbv072ncdd0op" path="res://assets/Flash-space-player.png" id="2_ctiup"]
 [ext_resource type="Script" uid="uid://bwlalwuw83g7f" path="res://scripts/light.gd" id="2_wt4or"]
 [ext_resource type="Script" uid="uid://ch87sbd0sj4m2" path="res://scripts/mask.gd" id="3_e286m"]
 [ext_resource type="Shader" uid="uid://dvgiscxnf86fj" path="res://scripts/maskShader.gdshader" id="3_mopl7"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_f63je"]
+atlas = ExtResource("2_ctiup")
+region = Rect2(170, 170, 85, 85)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pknou"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f63je")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wt4or"]
-size = Vector2(7, 7)
+size = Vector2(20, 6)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e286m"]
 shader = ExtResource("3_mopl7")
@@ -14,11 +30,12 @@ shader = ExtResource("3_mopl7")
 [node name="flashLight" type="Area2D" unique_id=1752664906]
 script = ExtResource("1_v7dw0")
 
-[node name="temp" type="Polygon2D" parent="." unique_id=240146030]
-polygon = PackedVector2Array(-3, -4, 4, -4, 4, 3, -3, 3)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=261425044]
+position = Vector2(-4, -1)
+sprite_frames = SubResource("SpriteFrames_pknou")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1953487657]
-position = Vector2(0.5, -0.5)
+position = Vector2(-6, 0)
 shape = SubResource("RectangleShape2D_wt4or")
 
 [node name="light" type="Area2D" parent="." unique_id=173916667]
@@ -26,17 +43,17 @@ script = ExtResource("2_wt4or")
 
 [node name="mask" type="Polygon2D" parent="light" unique_id=1234049015]
 z_index = 4096
-polygon = PackedVector2Array(4, -4, 4, 3, 315, 43, 332, 22, 340, -5, 333, -27, 315, -44)
+polygon = PackedVector2Array(4, -8, 4, 7, 315, 43, 332, 22, 340, -5, 333, -27, 315, -44)
 script = ExtResource("3_e286m")
 
 [node name="Polygon2D" type="Polygon2D" parent="light/mask" unique_id=2105398725]
 z_index = 4096
 material = SubResource("ShaderMaterial_e286m")
-polygon = PackedVector2Array(-18, -32, -39, -19, -49, -1, -41, 18, -19, 31, 4, 9, 315, 43, 332, 22, 340, -5, 333, -27, 315, -44, 4, -13)
+polygon = PackedVector2Array(-18, -32, -39, -19, -49, -1, -41, 18, -19, 31, 4, 7, 315, 43, 332, 22, 340, -5, 333, -27, 315, -44, 4, -8)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="light" unique_id=626746391]
 z_index = 4096
-polygon = PackedVector2Array(4, -4, 4, 3, 315, 43, 332, 22, 340, -5, 333, -27, 315, -44)
+polygon = PackedVector2Array(4, -8, 4, 7, 315, 43, 332, 22, 340, -5, 333, -27, 315, -44)
 
 [connection signal="flashClick" from="." to="light" method="_on_flash_light_flash_click"]
 [connection signal="flashNotClick" from="." to="light" method="_on_flash_light_flash_not_click"]

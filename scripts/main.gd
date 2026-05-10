@@ -50,3 +50,7 @@ func endSpawn():
 	instance.global_position = randomPos
 	instance.gameWon.connect(_on_static_body_2d_game_won)
 	add_child(instance)
+
+
+func _on_item_switch_3() -> void:
+	pass # Replace with function body.
