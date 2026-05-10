@@ -96,7 +96,6 @@ visibility_layer = 2
 position = Vector2(2, -10)
 
 [node name="flashLight" parent="playerRelated/player/playerArm" unique_id=1752664906 instance=ExtResource("3_sugp2")]
-z_index = -1
 position = Vector2(39, 4)
 
 [node name="shotgun" parent="playerRelated/player/playerArm" unique_id=1518196179 instance=ExtResource("5_tbgi4")]

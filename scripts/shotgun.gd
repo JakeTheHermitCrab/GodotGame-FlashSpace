@@ -7,10 +7,13 @@ extends Area2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hide()
-
+	
 func _physics_process(delta):
 	gunHide()
 	gunShoot()
+	var centerX = get_viewport().get_visible_rect().size.x / 2
+	var mouseX = get_viewport().get_mouse_position().x
+	$AnimatedSprite2D.flip_v = mouseX < centerX
 
 func gunShoot():
 	if Input.is_action_just_pressed("leftClick") and Global.isGunSelected == 1:

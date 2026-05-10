@@ -1,5 +1,6 @@
 extends CharacterBody2D
 @export var acceleration: float = 10.0
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 const SPEED = 300
 var movement_direction: Vector2 = Vector2.ZERO
@@ -8,6 +9,11 @@ var knockBackTimer: float = 0.0
 
 signal gunHasShot()
 func _physics_process(delta: float) -> void:
+	var centerX = get_viewport().get_visible_rect().size.x / 2
+	var mouseX = get_viewport().get_mouse_position().x
+
+	$AnimatedSprite2D.flip_h = mouseX < centerX
+	
 	if knockBackTimer > 0.0:
 		velocity = knockBack
 		knockBack = knockBack.lerp(Vector2.ZERO, 7 * delta)
@@ -21,8 +27,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Global.gunShoot == 1:
 		emit_signal("gunHasShot", self)
-	
-	
+
 
 func playerSpin(delta: float) -> void:
 	if knockBackTimer > 0.0:

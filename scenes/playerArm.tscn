@@ -5,28 +5,23 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h317b"]
 atlas = ExtResource("2_h317b")
-region = Rect2(85, 85, 85, 85)
+region = Rect2(85, 170, 85, 85)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1c2cy"]
 atlas = ExtResource("2_h317b")
-region = Rect2(85, 170, 85, 85)
+region = Rect2(85, 85, 85, 85)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2t5bu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_h317b")
-}],
-"loop": true,
-"name": &"arm_bent",
-"speed": 5.0
 }, {
-"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1c2cy")
 }],
-"loop": false,
-"name": &"arm_straight",
+"loop": true,
+"name": &"arms",
 "speed": 5.0
 }]
 
@@ -40,7 +35,7 @@ script = ExtResource("1_lj8jo")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1742328655]
 position = Vector2(16, 4)
 sprite_frames = SubResource("SpriteFrames_2t5bu")
-animation = &"arm_straight"
+animation = &"arms"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1554841532]
 light_mask = 4
