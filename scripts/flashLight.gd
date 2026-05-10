@@ -18,7 +18,6 @@ func _physics_process(delta):
 
 func _on_player_flash_light_switch() -> void:
 	show()
-	print("flashlight")
 
 func flashHide():
 	if Global.isFlashSelected == 0:

@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://vuyd4iy5enf8" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://bwn71a3u6m4d" path="res://scenes/playerArm.tscn" id="2_0wfyh"]
 [ext_resource type="Script" uid="uid://b4w2yn84xhkdo" path="res://scripts/bg_2.gd" id="2_85g3d"]
-[ext_resource type="Script" uid="uid://dg7x73ec7n1bb" path="res://scenes/navigation_region_2d.gd" id="2_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://b3wqgpvu7mu3h" path="res://assets/cranfield-traditional-etching-ink-soft-black.jpg" id="3_choun"]
 [ext_resource type="PackedScene" uid="uid://cbokvjx62lqru" path="res://scenes/flash_light.tscn" id="3_sugp2"]
 [ext_resource type="Texture2D" uid="uid://gy8rm8chctac" path="res://assets/static.png" id="3_ya4ey"]
@@ -13,6 +12,7 @@
 [ext_resource type="Script" uid="uid://dgienq4igj2ro" path="res://scripts/bg.gd" id="8_tipki"]
 [ext_resource type="Texture2D" uid="uid://demltojmyi5nj" path="res://icon.svg" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://dgiya2u5hq2b5" path="res://scenes/enemy.tscn" id="12_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://bqq1y5c37rru7" path="res://scenes/object.tscn" id="13_trceg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eb6dy"]
 atlas = ExtResource("3_ya4ey")
@@ -62,12 +62,10 @@ size = Vector2(12598, 125)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trceg"]
 size = Vector2(347, 11604)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_trceg"]
-vertices = PackedVector2Array(6583.0703, -5544.0625, 6666.922, 6196.883, -6339.8984, 6049.1094, -6234.0938, -5627.9297)
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_eb6dy"]
+vertices = PackedVector2Array(6196.953, 5788.0313, -6092.9766, 5834.961, -6077.008, -5360, 6149.039, -5360)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-6244, -5638, 6593, -5554, 6677, 6207, -6350, 6059)])
-parsed_geometry_type = 1
-parsed_collision_mask = 1
+outlines = Array[PackedVector2Array]([PackedVector2Array(-6087, -5370, 6159, -5370, 6207, 5798, -6103, 5845)])
 
 [node name="main" type="Node" unique_id=941396977]
 script = ExtResource("1_jyhfs")
@@ -75,6 +73,7 @@ script = ExtResource("1_jyhfs")
 [node name="playerRelated" type="Node2D" parent="." unique_id=1936004290]
 
 [node name="BG2" type="Node2D" parent="playerRelated" unique_id=972963369]
+visible = false
 position = Vector2(571, 318)
 script = ExtResource("2_85g3d")
 
@@ -105,6 +104,7 @@ position = Vector2(37, 5)
 position = Vector2(30, 0)
 
 [node name="Camera2D" type="Camera2D" parent="playerRelated/player" unique_id=1230174598]
+visible = false
 position = Vector2(33, -22)
 zoom = Vector2(1.045, 1.045)
 
@@ -173,9 +173,10 @@ texture = ExtResource("11_ya4ey")
 position = Vector2(-1, 155)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1769157713]
-navigation_polygon = SubResource("NavigationPolygon_trceg")
-enter_cost = 1.0
-script = ExtResource("2_a8y0u")
+navigation_polygon = SubResource("NavigationPolygon_eb6dy")
+
+[node name="object" parent="." unique_id=337455429 instance=ExtResource("13_trceg")]
+position = Vector2(-1, -2)
 
 [connection signal="itemSwitch1" from="." to="playerRelated/player" method="_on_main_item_switch_1"]
 [connection signal="itemSwitch2" from="." to="playerRelated/player" method="_on_main_item_switch_2"]

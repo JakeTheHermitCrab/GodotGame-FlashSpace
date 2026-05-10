@@ -1,28 +1,22 @@
 extends CharacterBody2D
-
-@onready var agent: NavigationAgent2D = $NavigationAgent2D
-@export var speed := 120.0
-
-var player: Node2D
-
-func _ready():
-	player = get_tree().get_first_node_in_group("player")
-
-	agent.avoidance_enabled = true
-	agent.velocity_computed.connect(_on_velocity_computed)
+@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
+@onready var player: CharacterBody2D = $"../playerRelated/player"
+var speed = 1200.0
 
 func _physics_process(delta):
-	if player == null:
+	navigation_agent_2d.target_position = player.global_position
+
+	if navigation_agent_2d.is_navigation_finished():
 		return
 
-	agent.target_position = player.global_position
+	var next_pos = navigation_agent_2d.get_next_path_position()
 
-	var next_pos = agent.get_next_path_position()
-	var desired_velocity = (next_pos - global_position).normalized() * speed
+	# THIS is the important part:
+	var desired_velocity = (next_pos - global_position).normalized() * 2000
 
-	# THIS is what activates avoidance system
-	agent.set_velocity(desired_velocity)
+	# let the agent apply avoidance
+	navigation_agent_2d.set_velocity(desired_velocity)
 
-func _on_velocity_computed(safe_velocity: Vector2):
+func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity
 	move_and_slide()

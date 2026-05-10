@@ -1,6 +1,7 @@
 extends NavigationRegion2D
+@onready var navigation_region: NavigationRegion2D = $"."
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	NavigationServer2D.map_force_update(get_world_2d().navigation_map)
+	navigation_region.bake_navigation_polygon()
