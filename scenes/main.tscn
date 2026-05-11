@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://dawsnfcxawrmi" path="res://scenes/compas.tscn" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://dgienq4igj2ro" path="res://scripts/bg.gd" id="8_tipki"]
 [ext_resource type="Texture2D" uid="uid://demltojmyi5nj" path="res://icon.svg" id="11_ya4ey"]
-[ext_resource type="PackedScene" uid="uid://dgiya2u5hq2b5" path="res://scenes/enemy.tscn" id="12_eb6dy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eb6dy"]
 atlas = ExtResource("3_ya4ey")
@@ -169,9 +168,6 @@ shape = SubResource("RectangleShape2D_trceg")
 position = Vector2(-137, -1245.5)
 scale = Vector2(3.140625, 90.07031)
 texture = ExtResource("11_ya4ey")
-
-[node name="enemy" parent="." unique_id=347087174 instance=ExtResource("12_eb6dy")]
-position = Vector2(-1, 155)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1769157713]
 navigation_polygon = SubResource("NavigationPolygon_trceg")

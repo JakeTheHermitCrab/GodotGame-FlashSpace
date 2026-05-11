@@ -6,14 +6,13 @@ const SPEED = 300
 var movement_direction: Vector2 = Vector2.ZERO
 var knockBack: Vector2 = Vector2.ZERO
 var knockBackTimer: float = 0.0
-
+var health = 5.0
 signal gunHasShot()
+
 func _physics_process(delta: float) -> void:
 	var centerX = get_viewport().get_visible_rect().size.x / 2
 	var mouseX = get_viewport().get_mouse_position().x
-
 	$AnimatedSprite2D.flip_h = mouseX < centerX
-	
 	if knockBackTimer > 0.0:
 		velocity = knockBack
 		knockBack = knockBack.lerp(Vector2.ZERO, 7 * delta)
@@ -24,9 +23,11 @@ func _physics_process(delta: float) -> void:
 		movement()
 	playerSpin(delta)
 	move_and_slide()
-	
 	if Global.gunShoot == 1:
 		emit_signal("gunHasShot", self)
+	if health == 0.0:
+		Global.playerDeath = 1.0
+	
 
 
 func playerSpin(delta: float) -> void:
@@ -69,3 +70,8 @@ func _on_main_item_switch_3() -> void:
 	Global.isFlashSelected = 0
 	Global.isGunSelected = 0
 	Global.isCompassSelected = 1
+
+
+func _on_enemy_hurt() -> void:
+	health -= 1.0
+	print(health)

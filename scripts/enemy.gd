@@ -4,6 +4,15 @@ extends CharacterBody2D
 var speed = 1200.0
 var health = 2.0
 var damage = 1.0
+var time = 0.0
+var timeUpdate = 0.9
+signal hurt()
+
+func _ready():
+	var player = get_tree().root.find_child("player", true, false)
+	if player:
+		self.hurt.connect(player._on_enemy_hurt)
+
 
 func _physics_process(delta):
 	navigation_agent_2d.target_position = player.global_position
@@ -12,6 +21,15 @@ func _physics_process(delta):
 	var next_pos = navigation_agent_2d.get_next_path_position()
 	var desired_velocity = (next_pos - global_position).normalized() * 2000
 	navigation_agent_2d.set_velocity(desired_velocity)
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		time += delta
+		if collider.name == "player":
+			if time >= timeUpdate:
+				emit_signal("hurt")
+				time = 0.0
+			
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity

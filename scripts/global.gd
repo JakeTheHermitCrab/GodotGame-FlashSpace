@@ -7,3 +7,5 @@ var isCompassSelected = 0
 var gunShoot = 0
 var lightOn = 0
 var rotation = 0
+
+var playerDeath = 0
