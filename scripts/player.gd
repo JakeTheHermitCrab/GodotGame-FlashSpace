@@ -38,8 +38,7 @@ func playerSpin(delta: float) -> void:
 		var mainAngle = velocity.angle()
 		var rotationSpeed: float = PI * 2
 		rotation = lerp_angle(rotation, mainAngle, delta * rotationSpeed)
-	
-
+		
 func movement():
 	var moveDirection = Input.get_vector("left", "right", "up", "down")
 	velocity = moveDirection * SPEED
@@ -63,15 +62,10 @@ func _on_main_item_switch_2() -> void:
 	Global.isFlashSelected = 0
 	Global.isGunSelected = 1
 	Global.isCompassSelected = 0
-#
+
 signal compassSwitch
 func _on_main_item_switch_3() -> void:
 	emit_signal("compassSwitch")
 	Global.isFlashSelected = 0
 	Global.isGunSelected = 0
 	Global.isCompassSelected = 1
-
-
-func _on_enemy_hurt() -> void:
-	health -= 1.0
-	print(health)

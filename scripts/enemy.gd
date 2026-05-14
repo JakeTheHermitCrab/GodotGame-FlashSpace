@@ -6,7 +6,7 @@ var health = 2.0
 var damage = 1.0
 var time = 0.0
 var timeUpdate = 0.9
-signal hurt()
+
 
 func _ready():
 	var player = get_tree().root.find_child("player", true, false)
@@ -29,8 +29,13 @@ func _physics_process(delta):
 			if time >= timeUpdate:
 				emit_signal("hurt")
 				time = 0.0
-			
+	if health == 0.0:
+		print("die")
+		queue_free()
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity
 	move_and_slide()
+
+func _on_shotgun_enemydamage() -> void:
+	health -= 1.0

@@ -2,8 +2,8 @@ extends Area2D
 
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 @onready var player = get_tree().get_first_node_in_group("player")
-
-
+@onready var enemy: CharacterBody2D = $"../../../../enemy"
+signal enemydamage()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hide()
@@ -19,9 +19,8 @@ func gunShoot():
 	if Input.is_action_just_pressed("leftClick") and Global.isGunSelected == 1:
 		Global.gunShoot = 1
 		if ray_cast_2d.is_colliding():
-			print("bang")
-		else:
-			print("nothing")
+			if ray_cast_2d.get_collider() == enemy:
+				emit_signal("enemydamage")
 	else:
 		Global.gunShoot = 0
 
