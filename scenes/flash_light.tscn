@@ -26,6 +26,7 @@ size = Vector2(20, 6)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e286m"]
 shader = ExtResource("3_mopl7")
+shader_parameter/edge_softness = 0.1
 
 [node name="flashLight" type="Area2D" unique_id=1752664906]
 position = Vector2(10, 0)
@@ -44,17 +45,17 @@ script = ExtResource("2_wt4or")
 
 [node name="mask" type="Polygon2D" parent="light" unique_id=1234049015]
 z_index = 4096
-polygon = PackedVector2Array(4, -8, 4, 7, 315, 43, 332, 22, 340, -5, 333, -27, 315, -44)
+polygon = PackedVector2Array(4, -8, 4, 7, 232, 94, 305, 56, 340, -5, 313, -64, 243, -102)
 script = ExtResource("3_e286m")
 
 [node name="Polygon2D" type="Polygon2D" parent="light/mask" unique_id=2105398725]
 z_index = 4096
 material = SubResource("ShaderMaterial_e286m")
-polygon = PackedVector2Array(-18, -32, -39, -19, -49, -1, -41, 18, -19, 31, 4, 7, 315, 43, 332, 22, 340, -5, 333, -27, 315, -44, 4, -8)
+polygon = PackedVector2Array(-18, -32, -48, -26, -57, -1, -51, 20, -19, 31, 4, 7, 231, 94, 304, 58, 340, -5, 313, -64, 243, -101, 4, -8)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="light" unique_id=626746391]
 z_index = 4096
-polygon = PackedVector2Array(4, -8, 4, 7, 315, 43, 332, 22, 340, -5, 333, -27, 315, -44)
+polygon = PackedVector2Array(4, -8, 4, 7, 232, 94, 305, 56, 340, -5, 313, -64, 243, -102)
 
 [connection signal="flashClick" from="." to="light" method="_on_flash_light_flash_click"]
 [connection signal="flashNotClick" from="." to="light" method="_on_flash_light_flash_not_click"]
