@@ -69,3 +69,7 @@ func _on_main_item_switch_3() -> void:
 	Global.isFlashSelected = 0
 	Global.isGunSelected = 0
 	Global.isCompassSelected = 1
+	
+func _on_enemy_hurt():
+	health -= 1.0
+	print(health)

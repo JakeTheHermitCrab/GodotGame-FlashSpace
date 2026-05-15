@@ -80,8 +80,8 @@ position = Vector2(571, 318)
 script = ExtResource("2_85g3d")
 
 [node name="ColorRect" type="AnimatedSprite2D" parent="playerRelated/BG2" unique_id=1880321266]
-position = Vector2(4.0000134, 21.500053)
-scale = Vector2(2.4583333, 1.8972224)
+position = Vector2(23.00003, 14.999996)
+scale = Vector2(2.7125, 2.1333332)
 sprite_frames = SubResource("SpriteFrames_jbj1t")
 animation = &"static"
 autoplay = "static"
@@ -173,6 +173,7 @@ scale = Vector2(3.140625, 90.07031)
 texture = ExtResource("11_ya4ey")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1769157713]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_trceg")
 enter_cost = 1.0
 script = ExtResource("2_a8y0u")
@@ -190,4 +191,3 @@ position = Vector2(-3334, -1815)
 [connection signal="flashLightSwitch" from="playerRelated/player" to="playerRelated/player/playerArm/flashLight" method="_on_player_flash_light_switch"]
 [connection signal="gunHasShot" from="playerRelated/player" to="playerRelated/player/playerArm/shotgun" method="_on_player_gun_has_shot"]
 [connection signal="shotGunSwitch" from="playerRelated/player" to="playerRelated/player/playerArm/shotgun" method="_on_player_shot_gun_switch"]
-[connection signal="enemydamage" from="playerRelated/player/playerArm/shotgun" to="enemy" method="_on_shotgun_enemydamage"]
