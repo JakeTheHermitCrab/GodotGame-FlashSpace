@@ -9,3 +9,4 @@ var lightOn = 0
 var rotation = 0
 
 var playerDeath = 0
+var voidDeath = 0

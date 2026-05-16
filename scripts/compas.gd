@@ -22,7 +22,6 @@ func _on_player_compass_switch() -> void:
 func compassHide():
 	if Global.isCompassSelected == 0:
 		hide()
-		set_process(false)
-	if Global.isCompassSelected == 1:
+	else:
 		show()
-		set_process(true)
+	

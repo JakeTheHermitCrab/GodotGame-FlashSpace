@@ -1,6 +1,7 @@
 extends CharacterBody2D
 @export var acceleration: float = 10.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var light: Area2D = $light
 
 const SPEED = 300
 var movement_direction: Vector2 = Vector2.ZERO
@@ -27,6 +28,8 @@ func _physics_process(delta: float) -> void:
 		emit_signal("gunHasShot", self)
 	if health == 0.0:
 		Global.playerDeath = 1.0
+	if Global.voidDeath == 1:
+		health = 0.0
 	
 
 

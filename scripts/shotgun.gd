@@ -33,11 +33,8 @@ func _on_player_shot_gun_switch() -> void:
 func gunHide():
 	if Global.isGunSelected == 0:
 		hide()
-		set_process(false)
-
-	if Global.isGunSelected == 1:
+	else:
 		show()
-		set_process(true)
 
 
 func _on_player_gun_has_shot(player: Node2D) -> void:
