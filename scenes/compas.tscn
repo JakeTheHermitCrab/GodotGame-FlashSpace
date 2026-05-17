@@ -34,6 +34,40 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="GDScript" id="GDScript_5o0v8"]
+script/source = "extends AnimatedSprite2D
+@onready var main = get_tree().current_scene
+var end_pos: Vector2
+
+func _process(delta):
+	if main.instancePos != null:
+		end_pos = main.instancePos
+		var distance = global_position.distance_to(end_pos)
+		if Global.isCompassSelected == 1:
+			if distance < 1000:
+				print(\"super close\")
+			elif distance < 2000:
+				print(\"very close\")
+			elif distance < 3000:
+				print(\"fairly close\")
+			elif distance < 4000:
+				print(\"somewhat close\")
+			elif distance < 5000:
+				print(\"getting close\")
+			elif distance < 6000:
+				print(\"not that far\")
+			elif distance < 7000:
+				print(\"somewhat far\")
+			elif distance < 8000:
+				print(\"kind of far\")
+			elif distance < 9000:
+				print(\"fairly far\")
+			elif distance < 10000:
+				print(\"very far\")
+			else:
+				print(\"extremely far\")
+"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qaux6"]
 size = Vector2(8, 17)
 
@@ -44,8 +78,10 @@ script = ExtResource("1_m41mg")
 sprite_frames = SubResource("SpriteFrames_h0lh2")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=987766976]
-position = Vector2(1, -11)
+position = Vector2(0.9999995, -10)
+scale = Vector2(0.6333333, 0.7)
 sprite_frames = SubResource("SpriteFrames_8o1yb")
+script = SubResource("GDScript_5o0v8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=339439718]
 position = Vector2(1, -2.5)

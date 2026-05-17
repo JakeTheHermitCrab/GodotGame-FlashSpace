@@ -7,7 +7,7 @@ const SPEED = 300
 var movement_direction: Vector2 = Vector2.ZERO
 var knockBack: Vector2 = Vector2.ZERO
 var knockBackTimer: float = 0.0
-var health = 5.0
+var health = 10.0
 signal gunHasShot()
 
 func _physics_process(delta: float) -> void:

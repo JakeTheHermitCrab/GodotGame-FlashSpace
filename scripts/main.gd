@@ -11,8 +11,7 @@ var endPoint = preload("res://scenes/end_point.tscn")
 var enemy = preload("res://scenes/enemy.tscn")
 var objectCount = 700
 var enemyCOunt = 10
-var endx
-var endy
+var instancePos
 
 func _ready():
 	endSpawn()
@@ -57,12 +56,11 @@ func objectSpawn():
 
 func endSpawn():
 	var instance = endPoint.instantiate()
-	var randomPos = Vector2(randf_range(6000,-5000), randf_range(5000,-5000))
+	var randomPos = Vector2(randf_range(-5000, 6000), randf_range(-5000, 5000))
 	instance.global_position = randomPos
 	instance.gameWon.connect(_on_static_body_2d_game_won)
 	add_child(instance)
-	endx = instance.global_position.x
-	endy = instance.global_position.y
+	instancePos = instance.global_position
 
 func enemySpawn():
 	var spawnPosition = []
