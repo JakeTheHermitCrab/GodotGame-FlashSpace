@@ -7,48 +7,11 @@
 [ext_resource type="Script" uid="uid://dg7x73ec7n1bb" path="res://scripts/navigation_region_2d.gd" id="2_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://b3wqgpvu7mu3h" path="res://assets/cranfield-traditional-etching-ink-soft-black.jpg" id="3_choun"]
 [ext_resource type="PackedScene" uid="uid://cbokvjx62lqru" path="res://scenes/flash_light.tscn" id="3_sugp2"]
-[ext_resource type="Texture2D" uid="uid://gy8rm8chctac" path="res://assets/static.png" id="3_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://cfm5cgsjsj8aq" path="res://scenes/shotgun.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dawsnfcxawrmi" path="res://scenes/compas.tscn" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://dgienq4igj2ro" path="res://scripts/bg.gd" id="8_tipki"]
 [ext_resource type="Texture2D" uid="uid://demltojmyi5nj" path="res://icon.svg" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://dgiya2u5hq2b5" path="res://scenes/enemy.tscn" id="13_trceg"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eb6dy"]
-atlas = ExtResource("3_ya4ey")
-region = Rect2(0, 0, 480, 360)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_trceg"]
-atlas = ExtResource("3_ya4ey")
-region = Rect2(480, 0, 480, 360)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a8y0u"]
-atlas = ExtResource("3_ya4ey")
-region = Rect2(960, 0, 480, 360)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jkv2x"]
-atlas = ExtResource("3_ya4ey")
-region = Rect2(1440, 0, 480, 360)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_jbj1t"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eb6dy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_trceg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a8y0u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jkv2x")
-}],
-"loop": true,
-"name": &"static",
-"speed": 100.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_choun"]
 size = Vector2(12284, 185)
@@ -78,16 +41,16 @@ script = ExtResource("1_jyhfs")
 position = Vector2(571, 318)
 script = ExtResource("2_85g3d")
 
-[node name="ColorRect" type="AnimatedSprite2D" parent="playerRelated/BG2" unique_id=1880321266]
-position = Vector2(23.00003, 14.999996)
-scale = Vector2(2.7125, 2.1333332)
-sprite_frames = SubResource("SpriteFrames_jbj1t")
-animation = &"static"
-autoplay = "static"
-frame_progress = 0.75526357
+[node name="ColorRect" type="ColorRect" parent="playerRelated/BG2" unique_id=902511143]
+offset_left = -627.0
+offset_top = -375.0
+offset_right = 625.0
+offset_bottom = 376.0
+color = Color(0.103743516, 0.10374353, 0.103743516, 1)
 
 [node name="player" parent="playerRelated" unique_id=555492990 instance=ExtResource("1_o5qli")]
 visibility_layer = 2
+z_index = 1
 position = Vector2(539, 339)
 
 [node name="playerArm" parent="playerRelated/player" unique_id=105793147 instance=ExtResource("2_0wfyh")]

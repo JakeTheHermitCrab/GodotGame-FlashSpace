@@ -16,7 +16,7 @@ func _physics_process(delta):
 
 func _on_player_compass_switch() -> void:
 	show()
-	print("compass")
+	$switch.play()
 
 
 func compassHide():

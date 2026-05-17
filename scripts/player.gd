@@ -30,7 +30,6 @@ func _physics_process(delta: float) -> void:
 		Global.playerDeath = 1.0
 	if Global.voidDeath == 1:
 		health = 0.0
-	
 
 
 func playerSpin(delta: float) -> void:
@@ -75,4 +74,4 @@ func _on_main_item_switch_3() -> void:
 	
 func _on_enemy_hurt():
 	health -= 1.0
-	print(health)
+	$hurt.play()

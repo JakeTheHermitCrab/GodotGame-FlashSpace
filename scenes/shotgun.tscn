@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://okwf2jsjekgy" path="res://scripts/shotgun.gd" id="1_voyse"]
 [ext_resource type="Texture2D" uid="uid://dbv072ncdd0op" path="res://assets/Flash-space-player.png" id="2_gnj2g"]
+[ext_resource type="AudioStream" uid="uid://bab7rtux8xwxe" path="res://assets/dennish18-shotgun-146188.mp3" id="3_1ya1i"]
+[ext_resource type="AudioStream" uid="uid://m5qasqynon8r" path="res://assets/freesound_community-shotgun_rack-82033.mp3" id="4_w47vr"]
+[ext_resource type="AudioStream" uid="uid://dtvn8kqsgfl3h" path="res://assets/freesound_community-item-pickup-37089.mp3" id="5_ma6dp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ya1i"]
 atlas = ExtResource("2_gnj2g")
@@ -38,3 +41,15 @@ target_position = Vector2(478, -2)
 collide_with_areas = true
 
 [node name="Timer" type="Timer" parent="." unique_id=1398120804]
+
+[node name="shoot" type="AudioStreamPlayer2D" parent="." unique_id=453250008]
+stream = ExtResource("3_1ya1i")
+volume_db = -8.666
+
+[node name="reload" type="AudioStreamPlayer2D" parent="." unique_id=484834617]
+stream = ExtResource("4_w47vr")
+volume_db = -8.667
+
+[node name="switch" type="AudioStreamPlayer2D" parent="." unique_id=232859807]
+stream = ExtResource("5_ma6dp")
+volume_db = -18.571

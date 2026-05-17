@@ -17,17 +17,18 @@ func _physics_process(delta):
 func gunShoot():
 	if Input.is_action_just_pressed("leftClick") and Global.isGunSelected == 1:
 		Global.gunShoot = 1
+		$shoot.play()
+		$reload.play()
 		if ray_cast_2d.is_colliding():
 			var hit = ray_cast_2d.get_collider()
 			if hit and hit.is_in_group("enemy"):
-
 				hit.takeDamage(1)
 	else:
 		Global.gunShoot = 0
 
 func _on_player_shot_gun_switch() -> void:
 	show()
-	print("shotGun")
+	$switch.play()
 
 
 func gunHide():

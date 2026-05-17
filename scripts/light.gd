@@ -45,10 +45,11 @@ func showMask():
 
 func _on_flash_light_flash_click() -> void:
 	showMask()
+	$lightSound.play()
 
 func _on_player_flash_light_switch():
-	fadeMask(0.0, 2.0)
+	fadeMask(0.0, 1.0)
 func _on_player_shot_gun_switch():
-	fadeMask(0.0, 2.0)
+	fadeMask(0.0, 1.0)
 func _on_player_compass_switch():
-	fadeMask(0.0, 2.0)
+	fadeMask(0.0, 1.0)

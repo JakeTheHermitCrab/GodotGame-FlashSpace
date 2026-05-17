@@ -1,6 +1,6 @@
 extends Label
 @onready var label: Label = $"."
-
+var played = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,3 +11,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Global.playerDeath == 1.0:
 		label.text = "You died lol"
+		if !played:
+			$"../death".play()
+			played = true

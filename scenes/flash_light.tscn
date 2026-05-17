@@ -4,7 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://dbv072ncdd0op" path="res://assets/Flash-space-player.png" id="2_ctiup"]
 [ext_resource type="Script" uid="uid://bwlalwuw83g7f" path="res://scripts/light.gd" id="2_wt4or"]
 [ext_resource type="Script" uid="uid://ch87sbd0sj4m2" path="res://scripts/mask.gd" id="3_e286m"]
+[ext_resource type="AudioStream" uid="uid://cqnjm7sggc64r" path="res://assets/lesiakower-torch-turned-on-flashlight-click-457506.mp3" id="3_f63je"]
 [ext_resource type="Shader" uid="uid://dvgiscxnf86fj" path="res://scripts/maskShader.gdshader" id="3_mopl7"]
+[ext_resource type="AudioStream" uid="uid://dtvn8kqsgfl3h" path="res://assets/freesound_community-item-pickup-37089.mp3" id="4_pknou"]
+[ext_resource type="AudioStream" uid="uid://dtc8qnks2oyke" path="res://assets/freesound_community-lamp-buzz-6132.mp3" id="8_38kuq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f63je"]
 atlas = ExtResource("2_ctiup")
@@ -39,22 +42,33 @@ sprite_frames = SubResource("SpriteFrames_pknou")
 position = Vector2(-6, 0)
 shape = SubResource("RectangleShape2D_wt4or")
 
+[node name="flashlighClick" type="AudioStreamPlayer2D" parent="." unique_id=1239659522]
+stream = ExtResource("3_f63je")
+
+[node name="itemSwitch" type="AudioStreamPlayer2D" parent="." unique_id=1653411112]
+stream = ExtResource("4_pknou")
+volume_db = -21.048
+
 [node name="light" type="Area2D" parent="." unique_id=173916667]
 script = ExtResource("2_wt4or")
 
 [node name="mask" type="Polygon2D" parent="light" unique_id=1234049015]
 z_index = 4096
-polygon = PackedVector2Array(4, -8, 4, 7, 232, 94, 305, 56, 340, -5, 313, -64, 243, -102)
+polygon = PackedVector2Array(-48, -26, -57, -1, -50, 20, -18, 30, 4, 7, 232, 94, 305, 56, 340, -5, 313, -64, 243, -102, 4.22789, -7.6702843, -18, -32)
 script = ExtResource("3_e286m")
 
 [node name="Polygon2D" type="Polygon2D" parent="light/mask" unique_id=2105398725]
 z_index = 4096
 material = SubResource("ShaderMaterial_e286m")
-polygon = PackedVector2Array(-18, -32, -48, -26, -57, -1, -51, 20, -19, 31, 4, 7, 231, 94, 304, 58, 340, -5, 313, -64, 243, -101, 4, -8)
+polygon = PackedVector2Array(-18, -32, -48, -26, -57, -1, -50, 20, -18, 30, 4, 7, 232, 94, 305, 56, 340, -5, 313, -64, 243, -102, 4, -8)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="light" unique_id=626746391]
 z_index = 4096
 polygon = PackedVector2Array(4, -8, 4, 7, 232, 94, 305, 56, 340, -5, 313, -64, 243, -102)
+
+[node name="lightSound" type="AudioStreamPlayer2D" parent="light" unique_id=281634022]
+stream = ExtResource("8_38kuq")
+volume_db = 16.571
 
 [connection signal="flashClick" from="." to="light" method="_on_flash_light_flash_click"]
 [connection signal="flashNotClick" from="." to="light" method="_on_flash_light_flash_not_click"]

@@ -6,6 +6,7 @@ var health = 2.0
 var damage = 1.0
 var time = 0.0
 var timeUpdate = 0.9
+var played = false
 signal hurt
 func _ready():
 	add_to_group("enemy")
@@ -27,7 +28,13 @@ func _physics_process(delta):
 		if collider.name == "player":
 			if time >= timeUpdate:
 				emit_signal("hurt")
+				$attack.play()
 				time = 0.0
+		if health <= 0:
+			if !played:
+				$death.play()
+				played = true
+
 	
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
@@ -36,7 +43,11 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 
 func takeDamage(amount):
 	health -= 1.0
-	print(health)
+	if !played:
+		$hurt.play()
+		played = true
 	if health <= 0:
-		print("dead")
+		if !played:
+			$death.play()
+			played = true
 		queue_free()

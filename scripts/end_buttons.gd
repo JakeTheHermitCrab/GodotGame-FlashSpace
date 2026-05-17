@@ -16,6 +16,7 @@ func _on_retry_pressed() -> void:
 	print("retry")
 	Global.playerDeath = 0.0
 	Global.voidDeath = 0.0
+	Global.isFlashSelected = 1
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 
 
@@ -23,4 +24,5 @@ func _on_mainmenu_pressed() -> void:
 	print("main menu")
 	Global.playerDeath = 0.0
 	Global.voidDeath = 0.0
-	get_tree().change_scene_to_file("res://scenes/start_screen.tscn")
+	Global.isFlashSelected = 1
+	get_tree().change_scene_to_file("res://scenes/start_screen.tscn") 

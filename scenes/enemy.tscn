@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://crulyb00exgit" path="res://scripts/enemy.gd" id="1_md0e3"]
 [ext_resource type="Texture2D" uid="uid://demltojmyi5nj" path="res://icon.svg" id="2_4ra3w"]
+[ext_resource type="AudioStream" uid="uid://c5qtr43lg8tqy" path="res://assets/stepir44-hurt-sound-435314.mp3" id="3_c4w8v"]
+[ext_resource type="AudioStream" uid="uid://lip81wxbna3f" path="res://assets/freesound_community-super-deep-growl-86749.mp3" id="4_xwavj"]
+[ext_resource type="AudioStream" uid="uid://cvvyx47ye26h7" path="res://assets/daviddumaisaudio-small-monster-attack-195712.mp3" id="5_nenq2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_md0e3"]
 radius = 22.022715
@@ -22,5 +25,18 @@ path_desired_distance = 4.0
 avoidance_enabled = true
 radius = 5.0
 max_speed = 150.0
+
+[node name="hurt" type="AudioStreamPlayer2D" parent="." unique_id=1471236366]
+stream = ExtResource("3_c4w8v")
+volume_db = 6.19
+
+[node name="death" type="AudioStreamPlayer2D" parent="." unique_id=132846660]
+stream = ExtResource("4_xwavj")
+volume_db = 6.19
+pitch_scale = 2.47
+
+[node name="attack" type="AudioStreamPlayer2D" parent="." unique_id=2088536086]
+stream = ExtResource("5_nenq2")
+pitch_scale = 0.92
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

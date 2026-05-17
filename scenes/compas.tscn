@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://c7ubjahkfdoh8" path="res://scripts/compas.gd" id="1_m41mg"]
 [ext_resource type="Texture2D" uid="uid://dbv072ncdd0op" path="res://assets/Flash-space-player.png" id="2_qaux6"]
 [ext_resource type="Texture2D" uid="uid://di8e6b7a6dah8" path="res://assets/Sprite-0001.png" id="3_5o0v8"]
+[ext_resource type="AudioStream" uid="uid://dtvn8kqsgfl3h" path="res://assets/freesound_community-item-pickup-37089.mp3" id="4_h0lh2"]
+[ext_resource type="AudioStream" uid="uid://dm7ju23ihkf1u" path="res://assets/musheran-beep-313342.mp3" id="5_8o1yb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5o0v8"]
 atlas = ExtResource("2_qaux6")
@@ -38,34 +40,47 @@ animations = [{
 script/source = "extends AnimatedSprite2D
 @onready var main = get_tree().current_scene
 var end_pos: Vector2
+var time := 0.0
+var blink_interval := 1.0
+
+func _ready():
+	hide()
 
 func _process(delta):
-	if main.instancePos != null:
-		end_pos = main.instancePos
-		var distance = global_position.distance_to(end_pos)
-		if Global.isCompassSelected == 1:
-			if distance < 1000:
-				print(\"super close\")
-			elif distance < 2000:
-				print(\"very close\")
-			elif distance < 3000:
-				print(\"fairly close\")
-			elif distance < 4000:
-				print(\"somewhat close\")
-			elif distance < 5000:
-				print(\"getting close\")
-			elif distance < 6000:
-				print(\"not that far\")
-			elif distance < 7000:
-				print(\"somewhat far\")
-			elif distance < 8000:
-				print(\"kind of far\")
-			elif distance < 9000:
-				print(\"fairly far\")
-			elif distance < 10000:
-				print(\"very far\")
-			else:
-				print(\"extremely far\")
+	if main.instancePos == null:
+		return
+	end_pos = main.instancePos
+	var distance = global_position.distance_to(end_pos)
+	if Global.isCompassSelected != 1:
+		hide()
+		return
+	if distance < 1000:
+		blink_interval = 0.2
+	elif distance < 2000:
+		blink_interval = 0.5
+	elif distance < 3000:
+		blink_interval = 0.9
+	elif distance < 4000:
+		blink_interval = 1.5
+	elif distance < 5000:
+		blink_interval = 2.0
+	elif distance < 6000:
+		blink_interval = 3.0
+	elif distance < 7000:
+		blink_interval = 4.0
+	elif distance < 8000:
+		blink_interval = 5.0
+	elif distance < 9000:
+		blink_interval = 6.0
+	elif distance < 10000:
+		blink_interval = 7.0
+	else:
+		blink_interval = 8.0
+	time += delta
+	if time >= blink_interval:
+		visible = !visible
+		$\"../beep\".play()
+		time = 0.0
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qaux6"]
@@ -86,3 +101,11 @@ script = SubResource("GDScript_5o0v8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=339439718]
 position = Vector2(1, -2.5)
 shape = SubResource("RectangleShape2D_qaux6")
+
+[node name="switch" type="AudioStreamPlayer2D" parent="." unique_id=1479952366]
+stream = ExtResource("4_h0lh2")
+volume_db = -14.857
+
+[node name="beep" type="AudioStreamPlayer2D" parent="." unique_id=771236504]
+stream = ExtResource("5_8o1yb")
+pitch_scale = 0.63
