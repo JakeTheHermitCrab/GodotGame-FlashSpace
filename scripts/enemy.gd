@@ -30,12 +30,7 @@ func _physics_process(delta):
 				emit_signal("hurt")
 				$attack.play()
 				time = 0.0
-		if health <= 0:
-			if !played:
-				$death.play()
-				played = true
 
-	
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity

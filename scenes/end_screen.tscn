@@ -1,10 +1,88 @@
 [gd_scene format=3 uid="uid://mjp018cxanp7"]
 
 [ext_resource type="Script" uid="uid://crri16jb1jm2k" path="res://scripts/label.gd" id="1_6e1uj"]
+[ext_resource type="Texture2D" uid="uid://lox81qo2v24c" path="res://assets/flashEnd.png" id="1_87vmq"]
 [ext_resource type="Script" uid="uid://c7fr1egnqc806" path="res://scripts/end_buttons.gd" id="1_kq7ac"]
 [ext_resource type="AudioStream" uid="uid://b4k46lv5drv52" path="res://assets/universfield-male-death-scream-horror-352706.mp3" id="3_jc7ji"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_g44xs"]
+atlas = ExtResource("1_87vmq")
+region = Rect2(0, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vj8vg"]
+atlas = ExtResource("1_87vmq")
+region = Rect2(320, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plosh"]
+atlas = ExtResource("1_87vmq")
+region = Rect2(640, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4j4el"]
+atlas = ExtResource("1_87vmq")
+region = Rect2(960, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wke0n"]
+atlas = ExtResource("1_87vmq")
+region = Rect2(1280, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_um0j2"]
+atlas = ExtResource("1_87vmq")
+region = Rect2(1600, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fix67"]
+atlas = ExtResource("1_87vmq")
+region = Rect2(1920, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyl73"]
+atlas = ExtResource("1_87vmq")
+region = Rect2(2240, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ycdd"]
+atlas = ExtResource("1_87vmq")
+region = Rect2(2560, 0, 320, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d62ht"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g44xs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vj8vg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plosh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4j4el")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wke0n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_um0j2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fix67")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyl73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ycdd")
+}],
+"loop": false,
+"name": &"doorshut",
+"speed": 15.0
+}]
+
 [node name="endScreen" type="Node2D" unique_id=119660030]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1466349771]
+position = Vector2(576.5, 324.5)
+scale = Vector2(3.603125, 3.6055555)
+sprite_frames = SubResource("SpriteFrames_d62ht")
+animation = &"doorshut"
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=1296729112]
 position = Vector2(553, 232)

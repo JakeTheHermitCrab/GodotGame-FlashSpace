@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://dawsnfcxawrmi" path="res://scenes/compas.tscn" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://dgienq4igj2ro" path="res://scripts/bg.gd" id="8_tipki"]
 [ext_resource type="Texture2D" uid="uid://demltojmyi5nj" path="res://icon.svg" id="11_ya4ey"]
-[ext_resource type="PackedScene" uid="uid://dgiya2u5hq2b5" path="res://scenes/enemy.tscn" id="13_trceg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_choun"]
 size = Vector2(12284, 185)
@@ -38,6 +37,7 @@ script = ExtResource("1_jyhfs")
 [node name="playerRelated" type="Node2D" parent="." unique_id=1936004290]
 
 [node name="BG2" type="Node2D" parent="playerRelated" unique_id=972963369]
+visible = false
 position = Vector2(571, 318)
 script = ExtResource("2_85g3d")
 
@@ -69,6 +69,7 @@ position = Vector2(-8, 8)
 position = Vector2(32, -1)
 
 [node name="Camera2D" type="Camera2D" parent="playerRelated/player" unique_id=1230174598]
+visible = false
 position = Vector2(33, -22)
 zoom = Vector2(1.045, 1.045)
 
@@ -137,9 +138,6 @@ texture = ExtResource("11_ya4ey")
 navigation_polygon = SubResource("NavigationPolygon_trceg")
 enter_cost = 1.0
 script = ExtResource("2_a8y0u")
-
-[node name="enemy" parent="." unique_id=347087174 instance=ExtResource("13_trceg")]
-position = Vector2(-3334, -1815)
 
 [connection signal="itemSwitch1" from="." to="playerRelated/player" method="_on_main_item_switch_1"]
 [connection signal="itemSwitch1" from="." to="playerRelated/player/playerArm" method="_on_main_item_switch_1"]
