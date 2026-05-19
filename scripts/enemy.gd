@@ -7,6 +7,7 @@ var damage = 1.0
 var time = 0.0
 var timeUpdate = 0.9
 var played = false
+signal died
 signal hurt
 func _ready():
 	add_to_group("enemy")
@@ -15,6 +16,7 @@ func _ready():
 		self.hurt.connect(player._on_enemy_hurt)
 
 func _physics_process(delta):
+	look_at(player.global_position)
 	navigation_agent_2d.target_position = player.global_position
 	if navigation_agent_2d.is_navigation_finished():
 		return
@@ -42,7 +44,5 @@ func takeDamage(amount):
 		$hurt.play()
 		played = true
 	if health <= 0:
-		if !played:
-			$death.play()
-			played = true
+		emit_signal("died")
 		queue_free()

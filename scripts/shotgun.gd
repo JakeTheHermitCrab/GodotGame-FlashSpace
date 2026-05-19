@@ -17,6 +17,7 @@ func _physics_process(delta):
 func gunShoot():
 	if Input.is_action_just_pressed("leftClick") and Global.isGunSelected == 1:
 		Global.gunShoot = 1
+		$AnimatedSprite2D.play("shoot")
 		$shoot.play()
 		$reload.play()
 		if ray_cast_2d.is_colliding():
@@ -25,6 +26,7 @@ func gunShoot():
 				hit.takeDamage(1)
 	else:
 		Global.gunShoot = 0
+		$AnimatedSprite2D.play("default")
 
 func _on_player_shot_gun_switch() -> void:
 	show()

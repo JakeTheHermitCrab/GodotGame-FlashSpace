@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://lox81qo2v24c" path="res://assets/flashEnd.png" id="1_87vmq"]
 [ext_resource type="Script" uid="uid://c7fr1egnqc806" path="res://scripts/end_buttons.gd" id="1_kq7ac"]
 [ext_resource type="AudioStream" uid="uid://b4k46lv5drv52" path="res://assets/universfield-male-death-scream-horror-352706.mp3" id="3_jc7ji"]
+[ext_resource type="AudioStream" uid="uid://ce6krlnba40ia" path="res://assets/freesound_community-sfx-door-close-big-104130.mp3" id="4_g44xs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g44xs"]
 atlas = ExtResource("1_87vmq")
@@ -108,6 +109,10 @@ script = ExtResource("1_6e1uj")
 
 [node name="death" type="AudioStreamPlayer2D" parent="." unique_id=1655204134]
 stream = ExtResource("3_jc7ji")
+
+[node name="doorClose" type="AudioStreamPlayer2D" parent="." unique_id=764977801]
+stream = ExtResource("4_g44xs")
+volume_db = 14.857
 
 [node name="EndButtons" type="Control" parent="." unique_id=834144295]
 layout_mode = 3

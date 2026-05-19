@@ -68,7 +68,6 @@ polygon = PackedVector2Array(4, -8, 4, 7, 232, 94, 305, 56, 340, -5, 313, -64, 2
 
 [node name="lightSound" type="AudioStreamPlayer2D" parent="light" unique_id=281634022]
 stream = ExtResource("8_38kuq")
-volume_db = 16.571
 
 [connection signal="flashClick" from="." to="light" method="_on_flash_light_flash_click"]
 [connection signal="flashNotClick" from="." to="light" method="_on_flash_light_flash_not_click"]

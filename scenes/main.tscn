@@ -10,19 +10,19 @@
 [ext_resource type="PackedScene" uid="uid://cfm5cgsjsj8aq" path="res://scenes/shotgun.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dawsnfcxawrmi" path="res://scenes/compas.tscn" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://dgienq4igj2ro" path="res://scripts/bg.gd" id="8_tipki"]
-[ext_resource type="Texture2D" uid="uid://demltojmyi5nj" path="res://icon.svg" id="11_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://cprsvb1wytlpp" path="res://assets/wall.png" id="10_ya4ey"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_choun"]
-size = Vector2(12284, 185)
+size = Vector2(12284, 1575)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ya4ey"]
-size = Vector2(174, 11621)
+size = Vector2(1884, 11621)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eb6dy"]
-size = Vector2(12598, 125)
+size = Vector2(12598, 1390)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trceg"]
-size = Vector2(347, 11604)
+size = Vector2(2548, 11604)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_trceg"]
 vertices = PackedVector2Array(6583.0703, -5544.0625, 6666.922, 6196.883, -6339.8984, 6049.1094, -6234.0938, -5627.9297)
@@ -37,7 +37,6 @@ script = ExtResource("1_jyhfs")
 [node name="playerRelated" type="Node2D" parent="." unique_id=1936004290]
 
 [node name="BG2" type="Node2D" parent="playerRelated" unique_id=972963369]
-visible = false
 position = Vector2(571, 318)
 script = ExtResource("2_85g3d")
 
@@ -69,7 +68,6 @@ position = Vector2(-8, 8)
 position = Vector2(32, -1)
 
 [node name="Camera2D" type="Camera2D" parent="playerRelated/player" unique_id=1230174598]
-visible = false
 position = Vector2(33, -22)
 zoom = Vector2(1.045, 1.045)
 
@@ -90,49 +88,49 @@ script = ExtResource("8_tipki")
 position = Vector2(-1080, -5361)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="barriers/wall" unique_id=432553866]
-position = Vector2(1141, -102.5)
+position = Vector2(1141, -797.5)
 shape = SubResource("RectangleShape2D_choun")
 
 [node name="Sprite2D" type="Sprite2D" parent="barriers/wall" unique_id=198243551]
-position = Vector2(1161.5002, 0)
-scale = Vector2(95.02344, 1)
-texture = ExtResource("11_ya4ey")
+position = Vector2(1924.4998, -691)
+scale = Vector2(45.428123, 9.872222)
+texture = ExtResource("10_ya4ey")
 
 [node name="wall1" type="StaticBody2D" parent="barriers" unique_id=224560284]
 position = Vector2(-6275, -1789)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="barriers/wall1" unique_id=225713707]
-position = Vector2(89, 1991.5)
+position = Vector2(-766, 1991.5)
 shape = SubResource("RectangleShape2D_ya4ey")
 
 [node name="Sprite2D" type="Sprite2D" parent="barriers/wall1" unique_id=1233078379]
-position = Vector2(53, 2090.4995)
-scale = Vector2(1.828125, 89.41407)
-texture = ExtResource("11_ya4ey")
+position = Vector2(-868.0001, 3154.0002)
+scale = Vector2(6.388282, 87.995834)
+texture = ExtResource("10_ya4ey")
 
 [node name="wall2" type="StaticBody2D" parent="barriers" unique_id=756612839]
 position = Vector2(-2475, 5880)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="barriers/wall2" unique_id=610699252]
-position = Vector2(2501, 52.5)
+position = Vector2(2501, 685)
 shape = SubResource("RectangleShape2D_eb6dy")
 
 [node name="Sprite2D" type="Sprite2D" parent="barriers/wall2" unique_id=1218317277]
-position = Vector2(2586.5005, 0)
-scale = Vector2(95.52344, 1)
-texture = ExtResource("11_ya4ey")
+position = Vector2(2674.75, 738.0001)
+scale = Vector2(42.439064, 8.405554)
+texture = ExtResource("10_ya4ey")
 
 [node name="wall3" type="StaticBody2D" parent="barriers" unique_id=1326187797]
 position = Vector2(6557, 1587)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="barriers/wall3" unique_id=2004680675]
-position = Vector2(-180.5, -1306)
+position = Vector2(920, -1306)
 shape = SubResource("RectangleShape2D_trceg")
 
 [node name="Sprite2D" type="Sprite2D" parent="barriers/wall3" unique_id=641190460]
-position = Vector2(-137, -1245.5)
-scale = Vector2(3.140625, 90.07031)
-texture = ExtResource("11_ya4ey")
+position = Vector2(958.7497, -1780.7933)
+scale = Vector2(8.276561, 94.29119)
+texture = ExtResource("10_ya4ey")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1769157713]
 navigation_polygon = SubResource("NavigationPolygon_trceg")

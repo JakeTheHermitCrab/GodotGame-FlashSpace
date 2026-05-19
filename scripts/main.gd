@@ -10,7 +10,7 @@ var object = preload("res://scenes/object.tscn")
 var endPoint = preload("res://scenes/end_point.tscn")
 var enemy = preload("res://scenes/enemy.tscn")
 var objectCount = 700
-var enemyCOunt = 10
+var enemyCOunt = 15
 var instancePos
 
 func _ready():
@@ -80,8 +80,17 @@ func enemySpawn():
 		if validPos:
 			var enemyinstance = enemy.instantiate()
 			enemyinstance.global_position = newPos
+			enemyinstance.died.connect(_on_enemy_died)
 			add_child(enemyinstance)
 			spawnPosition.append(newPos)
 
-func _on_item_switch_3() -> void:
-	pass # Replace with function body.
+func _on_enemy_died():
+	respawn_enemy()
+
+func respawn_enemy():
+	await get_tree().create_timer(5.0).timeout
+	var newPos = Vector2(randf_range(-5000, 6000), randf_range(-5000, 5000))
+	var enemyinstance = enemy.instantiate()
+	enemyinstance.global_position = newPos
+	enemyinstance.died.connect(_on_enemy_died)
+	add_child(enemyinstance)
